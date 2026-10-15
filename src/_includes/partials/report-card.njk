@@ -1,0 +1,10 @@
+<article class="card">
+  <div class="card-text">
+    <h3 class="card-title"><a href="{{ r.url }}">{{ r.data.title }}</a></h3>
+    <p class="card-desc">{{ r.data.description }}</p>
+    <p class="meta">{{ r.data.topic }} · <time datetime="{{ r.date | isoDate }}">{{ r.date | readableDate }}</time>{% if r.data.bangla %} · <span class="badge" lang="bn">বাংলা</span>{% endif %}</p>
+  </div>
+  <a class="thumb{% if not r.data.thumbnail %} thumb--empty{% endif %}" href="{{ r.url }}" tabindex="-1" aria-hidden="true">
+    {% if r.data.thumbnail %}<img src="{{ r.data.thumbnail }}" alt="" loading="lazy">{% else %}<span>{{ r.data.topic }}</span>{% endif %}
+  </a>
+</article>

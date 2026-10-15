@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+section: topics
+pagination:
+  data: site.topics
+  size: 1
+  alias: topic
+permalink: "/topics/{{ topic.slug }}/"
+eleventyComputed:
+  title: "{{ topic.name }}"
+  description: "{{ topic.description }}"
+---
+{% set inTopic = collections.reports | byTopic(topic.name) %}
+<div class="wrap">
+  <header class="page-head">
+    <p class="kicker"><a href="/topics/">Topics</a></p>
+    <h1 class="page-title">{{ topic.name }}</h1>
+    <p class="lede">{{ topic.description }}</p>
+  </header>
+
+  <nav class="chips" aria-label="Filter by topic">
+    <a class="chip" href="/research/">All</a>
+    {% for t in site.topics %}<a class="chip" href="/topics/{{ t.slug }}/" {% if t.slug == topic.slug %}aria-current="page"{% endif %}>{{ t.name }}</a>{% endfor %}
+  </nav>
+
+  <div class="section-head"><h2>{{ inTopic.length }} {% if inTopic.length == 1 %}report{% else %}reports{% endif %}</h2></div>
+  {% for r in inTopic %}{% include "partials/report-card.njk" %}{% else %}
+  <p class="lede">No reports in this topic yet.</p>
+  {% endfor %}
+</div>

@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+section: research
+---
+{% set sections = content | toc %}
+<div class="wrap">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/research/">Research</a> <span aria-hidden="true">›</span>
+    {% for t in site.topics %}{% if t.name == topic %}<a href="/topics/{{ t.slug }}/">{{ t.name }}</a>{% endif %}{% endfor %}
+  </nav>
+
+  <header class="report-head">
+    <p class="kicker">Research report · {{ topic }}</p>
+    <h1 class="report-title" data-pagefind-meta="title">{{ title }}</h1>
+    {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
+    {% if authors %}<p class="authors">{% for a in authors %}<span>{{ a }}</span>{% endfor %}</p>{% endif %}
+    <p class="meta">
+      Published <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+      · {{ content | readingTime }}
+      {% if reviewer %}· Reviewed by {{ reviewer }}{% endif %}
+    </p>
+  </header>
+
+  <div class="actions">
+    <div class="action-buttons">
+      {% if pdf %}<a class="btn btn-primary" href="{{ pdf }}" download>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF</a>{% endif %}
+      <details class="cite">
+        <summary class="btn btn-outline">Cite</summary>
+        <p class="cite-box">{% if authors %}{{ authors | join(", ") }}{% else %}{{ site.name }} Research Team{% endif %} ({{ page.date | year }}). <em>{{ title }}.</em> {{ site.name }}. {{ site.url }}{{ page.url }}</p>
+      </details>
+    </div>
+    {% if bangla or english %}
+    <div class="lang-switch" aria-label="Reading language">
+      {% if lang == "bn" %}<a href="{{ english }}" lang="en">English</a><span aria-current="true" lang="bn">বাংলা</span>
+      {% else %}<span aria-current="true">English</span><a href="{{ bangla }}" lang="bn">বাংলা</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="report-body">
+    {% if sections.length %}
+    <nav class="toc" aria-label="Contents">
+      <p class="label">Contents</p>
+      {% for s in sections %}<a href="#{{ s.id }}">{{ s.text }}</a>{% endfor %}
+    </nav>
+    {% endif %}
+
+    <article class="prose" data-pagefind-body>
+      <span data-pagefind-meta="topic" hidden>{{ topic }}</span>
+      {% if thumbnail %}<figure class="lead-figure"><img src="{{ thumbnail }}" alt="{{ thumbnailAlt or '' }}"></figure>{% endif %}
+      {{ content | safe }}
+    </article>
+
+    <aside class="report-rail">
+      <p class="label">About this report</p>
+      <dl class="facts">
+        <dt>Topic</dt><dd>{{ topic }}</dd>
+        <dt>Languages</dt><dd>English{% if bangla or english %}, <span lang="bn">বাংলা</span>{% endif %}</dd>
+        {% if pdf %}<dt>PDF</dt><dd><a href="{{ pdf }}" download>Download</a></dd>{% endif %}
+      </dl>
+      {% set related = collections.reports | relatedTo(topic, page.url) %}
+      {% if related.length %}<p class="label related-label">Related research</p>
+      {% for r in related %}<a class="related" href="{{ r.url }}">{{ r.data.title }}</a>{% endfor %}{% endif %}
+    </aside>
+  </div>
+</div>
