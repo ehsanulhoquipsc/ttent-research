@@ -13,6 +13,25 @@ reviewer: "Guest reviewer name"   # optional
 thumbnail: /files/volunteer-retention.jpg   # optional, 3:2 image in src/files/
 pdf: /files/volunteer-retention.pdf         # optional, PDF in src/files/
 bangla: /reports/volunteer-retention-bn/    # optional, link to the Bangla edition
+
+# Declarations (shown at the end of the report; see the Editorial policy)
+funding: "None. This report received no specific funding."   # or name the funder
+conflicts: "The authors declare no conflicts of interest."    # or describe them
+aiTools: "AI research agents were used to find sources; every source was checked by the authors."   # or "None."
+
+# Corrections: add one entry each time a fact, figure or source is corrected
+# corrections:
+#   - date: 2026-11-02
+#     note: "An earlier version gave the survey size as 1,200. It was 1,020."
+
+# Only if the report's main findings are withdrawn
+# retracted:
+#   date: 2026-12-01
+#   reason: "The main dataset was found to contain duplicate records."
+
+# Optional: a different licence for this report (default is CC BY 4.0)
+# licence: "Creative Commons Attribution-NonCommercial 4.0 International"
+# licenceUrl: "https://creativecommons.org/licenses/by-nc/4.0/"
 draft: true                      # remove this line when ready to publish
 ---
 

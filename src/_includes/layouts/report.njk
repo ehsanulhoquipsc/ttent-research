@@ -48,8 +48,26 @@ section: research
 
     <article class="prose" data-pagefind-body>
       <span data-pagefind-meta="topic" hidden>{{ topic }}</span>
+      {% if retracted %}
+      <div class="notice notice--retracted" role="note"><strong>Retracted on {{ retracted.date | readableDate }}</strong>{{ retracted.reason }} <a href="/editorial-policy/#corrections">About retractions</a></div>
+      {% endif %}
+      {% for c in corrections %}
+      <div class="notice" role="note"><strong>Correction, {{ c.date | readableDate }}</strong>{{ c.note }}</div>
+      {% endfor %}
       {% if thumbnail %}<figure class="lead-figure"><img src="{{ thumbnail }}" alt="{{ thumbnailAlt or '' }}"></figure>{% endif %}
       {{ content | safe }}
+
+      <section class="declarations" aria-labelledby="declarations-title">
+        <h2 id="declarations-title">Declarations</h2>
+        <dl>
+          {% if funding %}<dt>Funding</dt><dd>{{ funding }}</dd>{% endif %}
+          {% if conflicts %}<dt>Conflicts of interest</dt><dd>{{ conflicts }}</dd>{% endif %}
+          {% if aiTools %}<dt>AI research tools</dt><dd>{{ aiTools }}</dd>{% endif %}
+          {% if reviewer %}<dt>Review</dt><dd>Reviewed by {{ reviewer }} before publication.</dd>{% endif %}
+          <dt>Licence</dt><dd>© {{ page.date | year }} {% if authors %}{{ authors | join(", ") }}{% else %}{{ site.name }}{% endif %}. Published under <a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license">{{ licence or site.legal.contentLicence.name }}</a>. See <a href="/copyright/">Copyright &amp; licensing</a>.</dd>
+          <dt>Disclaimer</dt><dd>For general information only, not professional advice. See our <a href="/disclaimer/">Disclaimer</a>.</dd>
+        </dl>
+      </section>
     </article>
 
     <aside class="report-rail">
@@ -57,6 +75,7 @@ section: research
       <dl class="facts">
         <dt>Topic</dt><dd>{{ topic }}</dd>
         <dt>Languages</dt><dd>English{% if bangla or english %}, <span lang="bn">বাংলা</span>{% endif %}</dd>
+        <dt>Licence</dt><dd><a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license">{{ licence or site.legal.contentLicence.short }}</a></dd>
         {% if pdf %}<dt>PDF</dt><dd><a href="{{ pdf }}" download>Download</a></dd>{% endif %}
       </dl>
       {% set related = collections.reports | relatedTo(topic, page.url) %}

@@ -7,6 +7,30 @@ export default {
   contactEmail: "[contact email]",
   workspaceUrl: "https://ctent.onrender.com",
 
+  // Used in the legal pages. Fill these in before launch.
+  legal: {
+    entityName: "[Legal entity name, e.g. tTENT Research Inc.]",
+    abn: "[ABN]",
+    address: "[Postal address]",
+    jurisdiction: "New South Wales, Australia",
+    lastUpdated: "2026-10-16",
+    contentLicence: {
+      name: "Creative Commons Attribution 4.0 International",
+      short: "CC BY 4.0",
+      url: "https://creativecommons.org/licenses/by/4.0/",
+    },
+  },
+
+  // Footer and legal sidebar
+  legalPages: [
+    { name: "Privacy policy", url: "/privacy/" },
+    { name: "Terms of use", url: "/terms/" },
+    { name: "Copyright & licensing", url: "/copyright/" },
+    { name: "Disclaimer", url: "/disclaimer/" },
+    { name: "Editorial policy", url: "/editorial-policy/" },
+    { name: "Accessibility", url: "/accessibility/" },
+  ],
+
   // Replace "#" with your real profile links
   social: [
     { name: "Facebook", url: "#" },

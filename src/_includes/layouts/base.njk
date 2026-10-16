@@ -4,14 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} — {% endif %}{{ site.name }}</title>
-  <meta name="description" content="{{ description or site.description }}">
+  <meta name="description" content="{{ description or summary or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="{% if topic %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{{ title or site.name }}">
-  <meta property="og:description" content="{{ description or site.description }}">
-  {% if thumbnail %}<meta property="og:image" content="{{ site.url }}{{ thumbnail }}">{% endif %}
+  <meta property="og:description" content="{{ description or summary or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ thumbnail or '/assets/img/emblem.png' }}">
+  <meta name="twitter:card" content="{% if thumbnail %}summary_large_image{% else %}summary{% endif %}">
   <link rel="icon" href="/assets/img/emblem.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/newsreader-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
   {% block head %}{% endblock %}
 </head>
@@ -39,12 +43,38 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner">
+    <div class="wrap footer-grid">
       <a class="footer-name" href="/">{{ site.name }}</a>
-      <nav aria-label="Social media" class="social">
-        {% for s in site.social %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{% endfor %}
-        <a href="/contact/">Contact</a>
+      <nav class="footer-cols" aria-label="Footer">
+        <div class="footer-col">
+          <p class="footer-head">Research</p>
+          <a href="/research/">All research</a>
+          <a href="/topics/">Topics</a>
+          <a href="/search/">Search</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Organisation</p>
+          <a href="/about/">About</a>
+          <a href="/editorial-policy/">Editorial policy</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Legal</p>
+          <a href="/privacy/">Privacy policy</a>
+          <a href="/terms/">Terms of use</a>
+          <a href="/copyright/">Copyright &amp; licensing</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/accessibility/">Accessibility</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Follow</p>
+          {% for s in site.social %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{% endfor %}
+        </div>
       </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© {{ site.legal.lastUpdated | year }} {{ site.name }}. Reports are licensed under <a href="{{ site.legal.contentLicence.url }}" rel="license noopener">{{ site.legal.contentLicence.short }}</a> unless otherwise stated.</p>
+      <p>{{ site.legal.entityName }} · ABN {{ site.legal.abn }}</p>
     </div>
   </footer>
 </body>

@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+section: legal
+---
+<div class="wrap">
+  <header class="page-head legal-head">
+    <p class="kicker">Policies</p>
+    <h1 class="page-title">{{ title }}</h1>
+    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
+    <p class="meta">Last updated <time datetime="{{ site.legal.lastUpdated }}">{{ site.legal.lastUpdated | readableDate }}</time></p>
+  </header>
+
+  <div class="report-body legal-body">
+    <nav class="toc" aria-label="Policies">
+      <p class="label">Policies</p>
+      {% for p in site.legalPages %}<a href="{{ p.url }}" {% if p.url == page.url %}aria-current="page"{% endif %}>{{ p.name }}</a>{% endfor %}
+    </nav>
+
+    <article class="prose legal-prose">
+      {{ content | safe }}
+
+      <div class="legal-contact">
+        <h2>Contact</h2>
+        <p>Questions about this page? Email <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>, use our <a href="/contact/">contact form</a>, or write to {{ site.legal.entityName }}, {{ site.legal.address }}.</p>
+      </div>
+    </article>
+  </div>
+</div>
