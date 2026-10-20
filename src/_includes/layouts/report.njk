@@ -2,85 +2,88 @@
 layout: layouts/base.njk
 section: research
 ---
-{% set sections = content | toc %}
+{%- set L = lang or "en" -%}
+{%- set t = i18n[L] -%}
+{%- set p = "/bn" if L == "bn" else "" -%}
+{%- set sections = content | toc -%}
+{%- set team = site.name + " " + t.researchTeam -%}
 <div class="wrap">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/research/">Research</a> <span aria-hidden="true">›</span>
-    {% for t in site.topics %}{% if t.name == topic %}<a href="/topics/{{ t.slug }}/">{{ t.name }}</a>{% endif %}{% endfor %}
+  <nav class="breadcrumb" aria-label="{{ t.breadcrumb }}">
+    <a href="{{ p }}/research/">{{ t.research }}</a> <span aria-hidden="true">›</span>
+    <a href="{{ p }}/topics/{{ topic | topicSlug }}/">{{ topic | topicName(L) }}</a>
   </nav>
 
   <header class="report-head">
-    <p class="kicker">Research report · {{ topic }}</p>
+    <p class="kicker">{{ t.researchReport }} · {{ topic | topicName(L) }}</p>
     <h1 class="report-title" data-pagefind-meta="title">{{ title }}</h1>
     {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
     {% if authors %}<p class="authors">{% for a in authors %}<span>{{ a }}</span>{% endfor %}</p>{% endif %}
     <p class="meta">
-      Published <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
-      · {{ content | readingTime }}
-      {% if reviewer %}· Reviewed by {{ reviewer }}{% endif %}
+      {{ t.published }} <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate(L) }}</time>
+      · {{ content | readingTime(L) }}
+      {% if reviewer %}· {{ t.reviewedBy }} {{ reviewer }}{% endif %}
     </p>
   </header>
 
   <div class="actions">
     <div class="action-buttons">
       {% if pdf %}<a class="btn btn-primary" href="{{ pdf }}" download>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF</a>{% endif %}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>{{ t.downloadPdf }}</a>{% endif %}
       <details class="cite">
-        <summary class="btn btn-outline">Cite</summary>
-        <p class="cite-box">{% if authors %}{{ authors | join(", ") }}{% else %}{{ site.name }} Research Team{% endif %} ({{ page.date | year }}). <em>{{ title }}.</em> {{ site.name }}. {{ site.url }}{{ page.url }}</p>
+        <summary class="btn btn-outline">{{ t.cite }}</summary>
+        <p class="cite-box">{% if authors %}{{ authors | join(", ") }}{% else %}{{ team }}{% endif %} ({{ page.date | year }}). <em>{{ title }}.</em> {{ site.name }}. {{ site.url }}{{ page.url }}</p>
       </details>
     </div>
-    {% if bangla or english %}
-    <div class="lang-switch" aria-label="Reading language">
-      {% if lang == "bn" %}<a href="{{ english }}" lang="en">English</a><span aria-current="true" lang="bn">বাংলা</span>
-      {% else %}<span aria-current="true">English</span><a href="{{ bangla }}" lang="bn">বাংলা</a>{% endif %}
-    </div>
-    {% endif %}
   </div>
 
   <div class="report-body">
     {% if sections.length %}
-    <nav class="toc" aria-label="Contents">
-      <p class="label">Contents</p>
+    <nav class="toc" aria-label="{{ t.contents }}">
+      <p class="label">{{ t.contents }}</p>
       {% for s in sections %}<a href="#{{ s.id }}">{{ s.text }}</a>{% endfor %}
     </nav>
     {% endif %}
 
     <article class="prose" data-pagefind-body>
-      <span data-pagefind-meta="topic" hidden>{{ topic }}</span>
+      <span data-pagefind-meta="{{ 'বিষয়' if L == 'bn' else 'topic' }}" hidden>{{ topic | topicName(L) }}</span>
       {% if retracted %}
-      <div class="notice notice--retracted" role="note"><strong>Retracted on {{ retracted.date | readableDate }}</strong>{{ retracted.reason }} <a href="/editorial-policy/#corrections">About retractions</a></div>
+      <div class="notice notice--retracted" role="note"><strong>{{ t.retractedOn }} {{ retracted.date | readableDate(L) }}</strong>{{ retracted.reason }} <a href="/editorial-policy/#corrections">{{ t.aboutRetractions }}</a></div>
       {% endif %}
       {% for c in corrections %}
-      <div class="notice" role="note"><strong>Correction, {{ c.date | readableDate }}</strong>{{ c.note }}</div>
+      <div class="notice" role="note"><strong>{{ t.correction }}, {{ c.date | readableDate(L) }}</strong>{{ c.note }}</div>
       {% endfor %}
       {% if thumbnail %}<figure class="lead-figure"><img src="{{ thumbnail }}" alt="{{ thumbnailAlt or '' }}"></figure>{% endif %}
       {{ content | safe }}
 
       <section class="declarations" aria-labelledby="declarations-title">
-        <h2 id="declarations-title">Declarations</h2>
+        <h2 id="declarations-title">{{ t.declarations }}</h2>
         <dl>
-          {% if funding %}<dt>Funding</dt><dd>{{ funding }}</dd>{% endif %}
-          {% if conflicts %}<dt>Conflicts of interest</dt><dd>{{ conflicts }}</dd>{% endif %}
-          {% if aiTools %}<dt>AI research tools</dt><dd>{{ aiTools }}</dd>{% endif %}
-          {% if reviewer %}<dt>Review</dt><dd>Reviewed by {{ reviewer }} before publication.</dd>{% endif %}
-          <dt>Licence</dt><dd>© {{ page.date | year }} {% if authors %}{{ authors | join(", ") }}{% else %}{{ site.name }}{% endif %}. Published under <a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license">{{ licence or site.legal.contentLicence.name }}</a>. See <a href="/copyright/">Copyright &amp; licensing</a>.</dd>
-          <dt>Disclaimer</dt><dd>For general information only, not professional advice. See our <a href="/disclaimer/">Disclaimer</a>.</dd>
+          {% if funding %}<dt>{{ t.funding }}</dt><dd>{{ funding }}</dd>{% endif %}
+          {% if conflicts %}<dt>{{ t.conflicts }}</dt><dd>{{ conflicts }}</dd>{% endif %}
+          {% if aiTools %}<dt>{{ t.aiTools }}</dt><dd>{{ aiTools }}</dd>{% endif %}
+          {% if reviewer %}<dt>{{ t.review }}</dt><dd>{% if L == "bn" %}প্রকাশের আগে {{ reviewer }} পর্যালোচনা করেছেন।{% else %}Reviewed by {{ reviewer }} before publication.{% endif %}</dd>{% endif %}
+          <dt>{{ t.licence }}</dt>
+          <dd>© {{ page.date | year(L) }} {% if authors %}{{ authors | join(", ") }}{% else %}{{ team }}{% endif %}.
+            {% if L == "bn" %}<a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license" lang="en">{{ licence or site.legal.contentLicence.name }}</a> লাইসেন্সের অধীনে প্রকাশিত। বিস্তারিত: <a href="/copyright/">{{ t.copyright }}</a>।
+            {% else %}Published under <a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license">{{ licence or site.legal.contentLicence.name }}</a>. See <a href="/copyright/">Copyright &amp; licensing</a>.{% endif %}</dd>
+          <dt>{{ t.disclaimer }}</dt>
+          <dd>{{ t.disclaimerText }} {% if L == "bn" %}বিস্তারিত: <a href="/disclaimer/">{{ t.disclaimer }}</a>।{% else %}See our <a href="/disclaimer/">Disclaimer</a>.{% endif %}</dd>
         </dl>
       </section>
     </article>
 
     <aside class="report-rail">
-      <p class="label">About this report</p>
+      <p class="label">{{ t.aboutReport }}</p>
       <dl class="facts">
-        <dt>Topic</dt><dd>{{ topic }}</dd>
-        <dt>Languages</dt><dd>English{% if bangla or english %}, <span lang="bn">বাংলা</span>{% endif %}</dd>
-        <dt>Licence</dt><dd><a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license">{{ licence or site.legal.contentLicence.short }}</a></dd>
-        {% if pdf %}<dt>PDF</dt><dd><a href="{{ pdf }}" download>Download</a></dd>{% endif %}
+        <dt>{{ t.topic }}</dt><dd>{{ topic | topicName(L) }}</dd>
+        <dt>{{ t.languages }}</dt>
+        <dd>{% if L == "bn" %}<a href="{{ altEn }}" lang="en" hreflang="en">English</a>, বাংলা{% elif altBn %}English, <a href="{{ altBn }}" lang="bn" hreflang="bn">বাংলা</a>{% else %}English{% endif %}</dd>
+        <dt>{{ t.licence }}</dt><dd><a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license" lang="en">{{ licence or site.legal.contentLicence.short }}</a></dd>
+        {% if pdf %}<dt>PDF</dt><dd><a href="{{ pdf }}" download>{{ t.download }}</a></dd>{% endif %}
       </dl>
-      {% set related = collections.reports | relatedTo(topic, page.url) %}
-      {% if related.length %}<p class="label related-label">Related research</p>
-      {% for r in related %}<a class="related" href="{{ r.url }}">{{ r.data.title }}</a>{% endfor %}{% endif %}
+      {% set related = collections.reports | relatedTo(topic, page.fileSlug) | cards(L, collections.reportsBn) %}
+      {% if related.length %}<p class="label related-label">{{ t.related }}</p>
+      {% for r in related %}<a class="related" href="{{ r.url }}">{{ r.title }}</a>{% endfor %}{% endif %}
     </aside>
   </div>
 </div>

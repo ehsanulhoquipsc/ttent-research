@@ -1,37 +1,6 @@
 ---
 layout: layouts/base.njk
 title: Contact
+hasBn: true
 ---
-<div class="wrap">
-  <div class="page-head two-col">
-    <div>
-      <h1 class="page-title">Contact us</h1>
-      <p class="lede">Questions about a report, an idea for research, or want to join us? Send a message and we will reply by email.</p>
-      <div class="contact-list">
-        <div><span class="label">Email</span><a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a></div>
-        <div><span class="label">Research workspace</span><a href="{{ site.workspaceUrl }}">{{ site.workspaceUrl | replace("https://", "") }}</a></div>
-        <div><span class="label">Follow us</span><span>{% for s in site.social %}<a href="{{ s.url }}">{{ s.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span></div>
-      </div>
-    </div>
-
-    <!-- Netlify collects these messages automatically (Site → Forms). -->
-    <form class="form" name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="company">
-      <input type="hidden" name="form-name" value="contact">
-      <p hidden><label>Leave this empty <input name="company"></label></p>
-      <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required autocomplete="name"></div>
-      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-      <div class="field"><label for="reason">What is it about?</label>
-        <select id="reason" name="reason">
-          <option>A question about a report</option>
-          <option>An idea for research</option>
-          <option>Joining as a researcher or reviewer</option>
-          <option>Bangla translation</option>
-          <option>Something else</option>
-        </select>
-      </div>
-      <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="6" required></textarea></div>
-      <div><button class="btn btn-primary" type="submit">Send message</button></div>
-      <p class="form-note">We use your details only to reply to you. See our <a href="/privacy/">Privacy policy</a>.</p>
-    </form>
-  </div>
-</div>
+{% include "pages/contact.njk" %}

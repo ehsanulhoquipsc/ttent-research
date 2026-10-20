@@ -2,18 +2,6 @@
 layout: layouts/base.njk
 title: Search
 section: search
+hasBn: true
 ---
-<div class="narrow">
-  <header class="page-head">
-    <h1 class="page-title">Search research</h1>
-  </header>
-  <div id="search" class="search-box"></div>
-  <noscript><p class="lede">Search needs JavaScript. You can also <a href="/research/">browse all research</a>.</p></noscript>
-</div>
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-<script src="/pagefind/pagefind-ui.js"></script>
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    new PagefindUI({ element: "#search", showSubResults: false, showImages: false, translations: { placeholder: "Search titles, topics or authors" } });
-  });
-</script>
+{% include "pages/search.njk" %}

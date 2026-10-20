@@ -8,7 +8,6 @@ authors:
 # reviewer: "Name of guest reviewer"
 # thumbnail: /files/how-a-doctren-report-is-made.jpg
 # pdf: /files/how-a-doctren-report-is-made.pdf
-# bangla: /reports/how-a-doctren-report-is-made-bn/
 ---
 
 <div class="abstract">

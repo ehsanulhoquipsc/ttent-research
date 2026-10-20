@@ -1,29 +1,5 @@
 ---
 layout: layouts/base.njk
-description: Independent, non-profit research from Doctren, free to read in English and Bangla.
+hasBn: true
 ---
-{% set featured = collections.reports | first %}
-<div class="narrow">
-  {% if featured %}
-  <section class="featured" aria-labelledby="featured-title">
-    <p class="kicker">Featured</p>
-    <h1 id="featured-title"><a href="{{ featured.url }}">{{ featured.data.title }}</a></h1>
-    <p class="standfirst">{{ featured.data.description }}</p>
-    <p class="featured-links">
-      <time datetime="{{ featured.date | isoDate }}">{{ featured.date | readableDate }}</time>
-      <a href="{{ featured.url }}">Read online →</a>
-      {% if featured.data.pdf %}<a href="{{ featured.data.pdf }}" download>Download PDF</a>{% endif %}
-    </p>
-  </section>
-  {% endif %}
-
-  <section aria-labelledby="latest-title">
-    <div class="section-head">
-      <h2 id="latest-title">Latest research</h2>
-      <a href="/research/">View all</a>
-    </div>
-    {% for r in collections.reports | limit(7) %}{% if not loop.first %}
-      {% include "partials/report-card.njk" %}
-    {% endif %}{% endfor %}
-  </section>
-</div>
+{% include "pages/home.njk" %}

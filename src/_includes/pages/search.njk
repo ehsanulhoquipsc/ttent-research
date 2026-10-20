@@ -1,0 +1,20 @@
+{%- set L = lang or "en" -%}{%- set t = i18n[L] -%}{%- set p = "/bn" if L == "bn" else "" -%}
+<div class="narrow">
+  <header class="page-head">
+    <h1 class="page-title">{{ t.searchResearch }}</h1>
+  </header>
+  <div id="search" class="search-box"></div>
+  <noscript><p class="lede">{{ t.searchNoJs }} <a href="{{ p }}/research/">{{ t.browseAll }}</a>.</p></noscript>
+</div>
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: false,
+      showImages: false,
+      translations: { placeholder: {{ t.searchPlaceholder | dump | safe }} }
+    });
+  });
+</script>

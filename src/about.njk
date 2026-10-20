@@ -2,39 +2,6 @@
 layout: layouts/base.njk
 title: About
 section: about
+hasBn: true
 ---
-<div class="wrap">
-  <header class="page-head two-col">
-    <div>
-      <p class="kicker">About Doctren</p>
-      <h1 class="page-title">Independent research, open to everyone.</h1>
-      <p class="lede">Doctren is a non-profit research organisation. Our research groups plan, discuss and carry out their work together, and this site is where we publish what they find, free to read in English and Bangla.</p>
-    </div>
-    <div class="about-mark"><img src="/assets/img/mark.svg" alt="" width="160" height="192"></div>
-  </header>
-
-  <section class="block" aria-labelledby="pillars">
-    <h2 id="pillars">What guides our work</h2>
-    <div class="pillars">
-      <div class="pillar"><span class="num">1</span><h3>Open research</h3><p>[Two or three lines on staying independent, non-profit and free to read.]</p></div>
-      <div class="pillar"><span class="num">2</span><h3>Knowledge</h3><p>[Two or three lines on careful research, honest sources and sharing what is learned.]</p></div>
-      <div class="pillar"><span class="num">3</span><h3>Fair rights &amp; improvement</h3><p>[Two or three lines on fairness and turning research into real improvement.]</p></div>
-    </div>
-  </section>
-
-  <section class="block" aria-labelledby="how">
-    <h2 id="how">How a report is made</h2>
-    <ol class="steps">
-      <li><p class="kicker">Step 1</p><strong>A question</strong><span>A research group sets up a project and chooses agent or manual mode.</span></li>
-      <li><p class="kicker">Step 2</p><strong>Research</strong><span>Agents or members each research their part: data, books, references.</span></li>
-      <li><p class="kicker">Step 3</p><strong>Writing</strong><span>The lead researcher writes the paper from the findings.</span></li>
-      <li><p class="kicker">Step 4</p><strong>Review</strong><span>Guest reviewers check the final outcome.</span></li>
-      <li><p class="kicker">Step 5</p><strong>Published</strong><span>Online and as a PDF, in English and Bangla.</span></li>
-    </ol>
-  </section>
-</div>
-
-<section class="quote-band">
-  <p>“Ask honest questions. Share what you find.”</p>
-  <span>{{ site.name }}</span>
-</section>
+{% include "pages/about.njk" %}

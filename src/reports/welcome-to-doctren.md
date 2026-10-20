@@ -17,7 +17,7 @@ Each report has a short description, a contents list, the full text to read onli
 
 ## Reading in Bangla
 
-Where a report has a Bangla edition, a language switch appears at the top of the report so you can move between English and বাংলা.
+Use the **EN | বাংলা** switch at the top of any page to read the site in Bangla. Where a report has a Bangla edition, the switch takes you straight to it.
 
 ## Get involved
 

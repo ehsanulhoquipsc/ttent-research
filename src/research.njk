@@ -2,35 +2,11 @@
 layout: layouts/base.njk
 title: All research
 section: research
+hasBn: true
 pagination:
   data: collections.reports
   size: 10
   alias: reports
 permalink: "/research/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 ---
-<div class="wrap">
-  <header class="page-head">
-    <h1 class="page-title">All research</h1>
-    <p class="lede">Every report Doctren has published, newest first. Read online or download the PDF.</p>
-  </header>
-
-  <nav class="chips" aria-label="Filter by topic">
-    <a class="chip" href="/research/" aria-current="page">All</a>
-    {% for t in site.topics %}<a class="chip" href="/topics/{{ t.slug }}/">{{ t.name }}</a>{% endfor %}
-  </nav>
-
-  <div class="section-head">
-    <h2>{{ collections.reports.length }} reports</h2>
-  </div>
-  {% for r in reports %}{% include "partials/report-card.njk" %}{% endfor %}
-
-  {% if pagination.pages.length > 1 %}
-  <nav class="pager" aria-label="Pages">
-    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% endif %}
-    {% for href in pagination.hrefs %}
-      {% if loop.index0 == pagination.pageNumber %}<span aria-current="page">{{ loop.index }}</span>{% else %}<a href="{{ href }}">{{ loop.index }}</a>{% endif %}
-    {% endfor %}
-    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% endif %}
-  </nav>
-  {% endif %}
-</div>
+{% include "pages/research.njk" %}

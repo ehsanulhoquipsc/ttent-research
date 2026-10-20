@@ -2,21 +2,6 @@
 layout: layouts/base.njk
 title: Topics
 section: topics
+hasBn: true
 ---
-<div class="wrap">
-  <header class="page-head">
-    <h1 class="page-title">Topics</h1>
-    <p class="lede">Our research grouped by the questions it serves. Pick a topic to see every report in it.</p>
-  </header>
-
-  <div class="topic-grid">
-    {% for t in site.topics %}
-    {% set inTopic = collections.reports | byTopic(t.name) %}
-    <a class="topic-card" href="/topics/{{ t.slug }}/">
-      <h2>{{ t.name }}</h2>
-      <p>{{ t.description }}</p>
-      <p class="meta">{{ inTopic.length }} {% if inTopic.length == 1 %}report{% else %}reports{% endif %}{% if inTopic.length %} · Latest: {{ inTopic[0].data.title }}{% endif %}</p>
-    </a>
-    {% endfor %}
-  </div>
-</div>
+{% include "pages/topics.njk" %}

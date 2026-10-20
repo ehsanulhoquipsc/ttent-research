@@ -2,6 +2,7 @@
 export default {
   name: "Doctren",
   description: "Independent, non-profit research from Doctren, free to read in English and Bangla.",
+  descriptionBn: "Doctren-এর স্বাধীন, অলাভজনক গবেষণা, ইংরেজি ও বাংলায় বিনামূল্যে পড়ুন।",
   url: "https://doctren.com",
   contactEmail: "contact@doctren.com",
   workspaceUrl: "https://ctent.onrender.com",
@@ -39,27 +40,36 @@ export default {
     { name: "YouTube", url: "#" },
   ],
 
-  // The topic of every report must match one of these names exactly
+  // The topic of every report must match one of these English names exactly.
+  // nameBn / descriptionBn are shown on the Bangla site.
   topics: [
     {
       name: "Non-profit sector",
+      nameBn: "অলাভজনক খাত",
       slug: "non-profit-sector",
       description: "How non-profit organisations work: volunteers, funding, governance and the difference they make.",
+      descriptionBn: "অলাভজনক প্রতিষ্ঠান কীভাবে কাজ করে: স্বেচ্ছাসেবক, অর্থায়ন, পরিচালনা এবং তাদের কাজের প্রভাব।",
     },
     {
       name: "Knowledge",
+      nameBn: "জ্ঞান",
       slug: "knowledge",
       description: "Research on learning, scholarship and access to sources, including how Doctren itself does research.",
+      descriptionBn: "শিক্ষা, গবেষণাচর্চা ও তথ্যসূত্রে প্রবেশাধিকার নিয়ে গবেষণা, Doctren নিজে কীভাবে গবেষণা করে তাসহ।",
     },
     {
       name: "Rights & justice",
+      nameBn: "অধিকার ও ন্যায়বিচার",
       slug: "rights-justice",
       description: "Fair treatment at work, in law and in society, and what the evidence says about closing the gaps.",
+      descriptionBn: "কর্মক্ষেত্রে, আইনে ও সমাজে ন্যায্য আচরণ, এবং ব্যবধান কমাতে প্রমাণ কী বলে।",
     },
     {
       name: "Community improvement",
+      nameBn: "সমাজ উন্নয়ন",
       slug: "community-improvement",
       description: "Practical programs that help communities grow: mentoring, education and local services.",
+      descriptionBn: "সমাজকে এগিয়ে নেওয়ার বাস্তব উদ্যোগ: মেন্টরিং, শিক্ষা ও স্থানীয় সেবা।",
     },
   ],
 };

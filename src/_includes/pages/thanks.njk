@@ -1,0 +1,14 @@
+{%- set L = lang or "en" -%}{%- set p = "/bn" if L == "bn" else "" -%}
+<div class="narrow">
+  <header class="page-head">
+    {% if L == "bn" %}
+    <h1 class="page-title">বার্তা পাঠানো হয়েছে</h1>
+    <p class="lede">ধন্যবাদ। আমরা শিগগিরই আপনার ইমেইলে উত্তর দেব।</p>
+    <p><a class="btn btn-outline" href="{{ p }}/">গবেষণায় ফিরে যান</a></p>
+    {% else %}
+    <h1 class="page-title">Message sent</h1>
+    <p class="lede">Thank you. We will reply to your email soon.</p>
+    <p><a class="btn btn-outline" href="/">Back to research</a></p>
+    {% endif %}
+  </header>
+</div>

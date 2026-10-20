@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+section: topics
+pagination:
+  data: site.topics
+  size: 1
+  alias: topicItem
+permalink: "/bn/topics/{{ topicItem.slug }}/"
+eleventyComputed:
+  title: "{{ topicItem.nameBn }}"
+  description: "{{ topicItem.descriptionBn }}"
+---
+{% include "pages/topic.njk" %}

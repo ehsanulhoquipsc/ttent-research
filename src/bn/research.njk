@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+title: সব গবেষণা
+section: research
+pagination:
+  data: collections.reports
+  size: 10
+  alias: reports
+permalink: "/bn/research/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+{% include "pages/research.njk" %}

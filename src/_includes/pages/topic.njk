@@ -1,0 +1,19 @@
+{%- set L = lang or "en" -%}{%- set t = i18n[L] -%}{%- set p = "/bn" if L == "bn" else "" -%}
+{%- set inTopic = collections.reports | byTopic(topicItem.name) | cards(L, collections.reportsBn) -%}
+<div class="wrap">
+  <header class="page-head">
+    <p class="kicker"><a href="{{ p }}/topics/">{{ t.topics }}</a></p>
+    <h1 class="page-title">{{ topicItem.name | topicName(L) }}</h1>
+    <p class="lede">{{ topicItem.descriptionBn if L == "bn" else topicItem.description }}</p>
+  </header>
+
+  <nav class="chips" aria-label="{{ t.filterByTopic }}">
+    <a class="chip" href="{{ p }}/research/">{{ t.all }}</a>
+    {% for tp in site.topics %}<a class="chip" href="{{ p }}/topics/{{ tp.slug }}/" {% if tp.slug == topicItem.slug %}aria-current="page"{% endif %}>{{ tp.name | topicName(L) }}</a>{% endfor %}
+  </nav>
+
+  <div class="section-head"><h2>{{ inTopic.length | countReports(L) }}</h2></div>
+  {% for c in inTopic %}{% include "partials/report-card.njk" %}{% else %}
+  <p class="lede">{{ t.noReports }}</p>
+  {% endfor %}
+</div>

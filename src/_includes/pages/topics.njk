@@ -1,0 +1,18 @@
+{%- set L = lang or "en" -%}{%- set t = i18n[L] -%}{%- set p = "/bn" if L == "bn" else "" -%}
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="page-title">{{ t.topics }}</h1>
+    <p class="lede">{{ t.topicsLede }}</p>
+  </header>
+
+  <div class="topic-grid">
+    {% for tp in site.topics %}
+    {% set inTopic = collections.reports | byTopic(tp.name) | cards(L, collections.reportsBn) %}
+    <a class="topic-card" href="{{ p }}/topics/{{ tp.slug }}/">
+      <h2>{{ tp.name | topicName(L) }}</h2>
+      <p>{{ tp.descriptionBn if L == "bn" else tp.description }}</p>
+      <p class="meta">{{ inTopic.length | countReports(L) }}{% if inTopic.length %} · {{ t.latestIn }}: {{ inTopic[0].title }}{% endif %}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>

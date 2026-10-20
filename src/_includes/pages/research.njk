@@ -1,0 +1,25 @@
+{%- set L = lang or "en" -%}{%- set t = i18n[L] -%}{%- set p = "/bn" if L == "bn" else "" -%}
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="page-title">{{ t.allResearch }}</h1>
+    <p class="lede">{{ t.allResearchLede }}</p>
+  </header>
+
+  <nav class="chips" aria-label="{{ t.filterByTopic }}">
+    <a class="chip" href="{{ p }}/research/" aria-current="page">{{ t.all }}</a>
+    {% for tp in site.topics %}<a class="chip" href="{{ p }}/topics/{{ tp.slug }}/">{{ tp.name | topicName(L) }}</a>{% endfor %}
+  </nav>
+
+  <div class="section-head"><h2>{{ collections.reports.length | countReports(L) }}</h2></div>
+  {% for c in reports | cards(L, collections.reportsBn) %}{% include "partials/report-card.njk" %}{% endfor %}
+
+  {% if pagination.pages.length > 1 %}
+  <nav class="pager" aria-label="{{ t.pages }}">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">{{ t.previous }}</a>{% endif %}
+    {% for href in pagination.hrefs %}
+      {% if loop.index0 == pagination.pageNumber %}<span aria-current="page">{{ loop.index | num(L) }}</span>{% else %}<a href="{{ href }}">{{ loop.index | num(L) }}</a>{% endif %}
+    {% endfor %}
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">{{ t.next }}</a>{% endif %}
+  </nav>
+  {% endif %}
+</div>

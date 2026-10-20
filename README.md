@@ -14,7 +14,11 @@ The new report appears automatically on the home page (the newest report is feat
 
 ### Bangla edition
 
-Make a second file, e.g. `src/reports/volunteer-retention-bn.md`, with `lang: bn` and `english: /reports/volunteer-retention/` at the top. In the English file add `bangla: /reports/volunteer-retention-bn/`. A language switch then appears on both pages. Bangla copies are not listed twice.
+The whole site has a Bangla version at `/bn/`, reached with the **EN | বাংলা** switch in the header.
+
+To add a Bangla edition of a report, create `src/reports/bn/<same-file-name>.md` (for example `src/reports/bn/volunteer-retention.md`). Translate the title, description, authors and text; keep `date` and `topic` exactly as in the English file. It is published at `/bn/reports/volunteer-retention/` and linked to the English report automatically. Reports without a Bangla edition still appear on the Bangla site, marked "শুধু ইংরেজিতে" (English only).
+
+Interface text (menus, buttons, labels) is in `src/_data/i18n.js`. Bangla topic names are in `src/_data/site.js` (`nameBn`, `descriptionBn`). The legal pages are English only.
 
 ## Change site settings
 

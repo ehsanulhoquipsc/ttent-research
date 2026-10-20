@@ -1,6 +1,11 @@
 ---
 # Copy this file into src/reports/ and rename it, e.g. src/reports/volunteer-retention.md
 # The file name becomes the web address: /reports/volunteer-retention/
+#
+# BANGLA EDITION: put the translation in src/reports/bn/ with the SAME file name
+# (src/reports/bn/volunteer-retention.md). Copy this header, translate title,
+# description and authors, and keep date and topic exactly as in English.
+# It appears at /bn/reports/volunteer-retention/ and the EN | বাংলা switch links the two.
 
 title: "Full title of the report"
 description: "One or two sentences shown under the title in every list."
@@ -12,7 +17,6 @@ authors:
 reviewer: "Guest reviewer name"   # optional
 thumbnail: /files/volunteer-retention.jpg   # optional, 3:2 image in src/files/
 pdf: /files/volunteer-retention.pdf         # optional, PDF in src/files/
-bangla: /reports/volunteer-retention-bn/    # optional, link to the Bangla edition
 
 # Declarations (shown at the end of the report; see the Editorial policy)
 funding: "None. This report received no specific funding."   # or name the funder

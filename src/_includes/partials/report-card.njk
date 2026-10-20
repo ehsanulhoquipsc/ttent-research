@@ -1,10 +1,12 @@
-<article class="card">
+<article class="card"{% if L == "bn" and not c.translated %} lang="en"{% endif %}>
   <div class="card-text">
-    <h3 class="card-title"><a href="{{ r.url }}">{{ r.data.title }}</a></h3>
-    <p class="card-desc">{{ r.data.description }}</p>
-    <p class="meta">{{ r.data.topic }} · <time datetime="{{ r.date | isoDate }}">{{ r.date | readableDate }}</time>{% if r.data.bangla %} · <span class="badge" lang="bn">বাংলা</span>{% endif %}</p>
+    <h3 class="card-title"><a href="{{ c.url }}">{{ c.title }}</a></h3>
+    <p class="card-desc">{{ c.description }}</p>
+    <p class="meta" lang="{{ L }}">{{ c.topic | topicName(L) }} · <time datetime="{{ c.date | isoDate }}">{{ c.date | readableDate(L) }}</time>
+      {%- if L == "en" and c.hasBn %} · <span class="badge" lang="bn">{{ t.banglaBadge }}</span>{% endif %}
+      {%- if L == "bn" and not c.translated %} · <span class="badge">{{ t.englishOnly }}</span>{% endif %}</p>
   </div>
-  <a class="thumb{% if not r.data.thumbnail %} thumb--empty{% endif %}" href="{{ r.url }}" tabindex="-1" aria-hidden="true">
-    {% if r.data.thumbnail %}<img src="{{ r.data.thumbnail }}" alt="" loading="lazy">{% else %}<span>{{ r.data.topic }}</span>{% endif %}
+  <a class="thumb{% if not c.thumbnail %} thumb--empty{% endif %}" href="{{ c.url }}" tabindex="-1" aria-hidden="true">
+    {% if c.thumbnail %}<img src="{{ c.thumbnail }}" alt="" loading="lazy">{% else %}<span lang="{{ L }}">{{ c.topic | topicName(L) }}</span>{% endif %}
   </a>
 </article>
