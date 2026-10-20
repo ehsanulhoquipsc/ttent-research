@@ -1,19 +1,18 @@
 // Site-wide settings. Edit these, no code knowledge needed.
 export default {
-  name: "tTENT",
-  tagline: "Conducting from Interior",
-  description: "Independent, non-profit research from tTENT, free to read in English and Bangla.",
-  url: "https://example.netlify.app", // change to your real domain once it is live
-  contactEmail: "[contact email]",
+  name: "Doctren",
+  description: "Independent, non-profit research from Doctren, free to read in English and Bangla.",
+  url: "https://doctren.com",
+  contactEmail: "contact@doctren.com",
   workspaceUrl: "https://ctent.onrender.com",
 
   // Used in the legal pages. Fill these in before launch.
   legal: {
-    entityName: "[Legal entity name, e.g. tTENT Research Inc.]",
+    entityName: "[Legal entity name, e.g. Doctren Research Inc.]",
     abn: "[ABN]",
     address: "[Postal address]",
     jurisdiction: "New South Wales, Australia",
-    lastUpdated: "2026-10-16",
+    lastUpdated: "2026-10-20",
     contentLicence: {
       name: "Creative Commons Attribution 4.0 International",
       short: "CC BY 4.0",
@@ -50,7 +49,7 @@ export default {
     {
       name: "Knowledge",
       slug: "knowledge",
-      description: "Research on learning, scholarship and access to sources, including how tTENT itself does research.",
+      description: "Research on learning, scholarship and access to sources, including how Doctren itself does research.",
     },
     {
       name: "Rights & justice",

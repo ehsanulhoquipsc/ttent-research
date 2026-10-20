@@ -1,15 +1,15 @@
 ---
-title: "Welcome to tTENT Research"
+title: "Welcome to Doctren"
 description: "Why we publish our work openly, what you will find here, and how to read it in English or Bangla."
 date: 2026-10-14
 topic: Knowledge
 authors:
-  - tTENT Research Team
+  - Doctren Research Team
 ---
 
 ## Why this site exists
 
-tTENT is a non-profit research workspace. Research groups use it to plan their work, divide it up and write their findings. This site is the public side: every finished, reviewed report is published here for anyone to read.
+Doctren is a non-profit research organisation. Our research groups plan their work together, divide it up and write up their findings. This site is the public side: every finished, reviewed report is published here for anyone to read.
 
 ## What you will find
 

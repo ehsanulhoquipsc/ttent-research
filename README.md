@@ -1,6 +1,6 @@
-# tTENT Research
+# Doctren
 
-The public research blog for tTENT. Plain HTML and CSS, built with [Eleventy](https://www.11ty.dev/), searchable with [Pagefind](https://pagefind.app/), and hosted free on Netlify.
+The public research site for Doctren, published at [doctren.com](https://doctren.com). Plain HTML and CSS, built with [Eleventy](https://www.11ty.dev/), searchable with [Pagefind](https://pagefind.app/), and hosted free on Netlify.
 
 ## Publish a new report
 
@@ -47,7 +47,7 @@ src/
   _includes/layouts/      page frame (base.njk) and report page (report.njk)
   _includes/partials/     the report card used in lists
   assets/css/style.css    all styling
-  assets/img/             logo
+  assets/img/             logo, favicon and share image
   files/                  PDFs and thumbnails
   reports/                one Markdown file per report
   index.njk, research.njk, topics/, about.njk, contact.njk, search.njk

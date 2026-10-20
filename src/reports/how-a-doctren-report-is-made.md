@@ -1,19 +1,19 @@
 ---
-title: "How a tTENT report is made: research agents, researchers and the final paper"
+title: "How a Doctren report is made: research agents, researchers and the final paper"
 description: "Every report starts with one question. Agents gather the sources, and a researcher writes the paper."
 date: 2026-10-15
 topic: Knowledge
 authors:
-  - tTENT Research Team
+  - Doctren Research Team
 # reviewer: "Name of guest reviewer"
-# thumbnail: /files/how-a-ttent-report-is-made.jpg
-# pdf: /files/how-a-ttent-report-is-made.pdf
-# bangla: /reports/how-a-ttent-report-is-made-bn/
+# thumbnail: /files/how-a-doctren-report-is-made.jpg
+# pdf: /files/how-a-doctren-report-is-made.pdf
+# bangla: /reports/how-a-doctren-report-is-made-bn/
 ---
 
 <div class="abstract">
 
-**Abstract.** tTENT is a non-profit workspace where research groups plan, discuss and carry out their work together. This report explains how a single question becomes a published paper: a project is set up in agent or manual mode, research agents gather sources for their part, the lead researcher writes the paper from those findings, and guest reviewers check the outcome before it appears on this site.
+**Abstract.** Doctren is a non-profit research organisation whose research groups plan, discuss and carry out their work together. This report explains how a single question becomes a published paper: a project is set up in agent or manual mode, research agents gather sources for their part, the lead researcher writes the paper from those findings, and guest reviewers check the outcome before it appears on this site.
 
 </div>
 

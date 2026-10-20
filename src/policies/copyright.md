@@ -1,6 +1,6 @@
 ---
 title: Copyright & licensing
-summary: Our research is free to share and reuse, as long as you credit the authors and tTENT.
+summary: Our research is free to share and reuse, as long as you credit the authors and Doctren.
 ---
 
 ## Reports are openly licensed

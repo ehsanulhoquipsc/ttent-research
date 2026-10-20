@@ -1,8 +1,8 @@
 {
-  "name": "ttent-research",
+  "name": "doctren",
   "version": "1.0.0",
   "private": true,
-  "description": "tTENT research blog — static HTML/CSS site built with Eleventy",
+  "description": "Doctren research site — static HTML/CSS site built with Eleventy",
   "scripts": {
     "build": "eleventy && pagefind --site _site",
     "start": "eleventy --serve",
