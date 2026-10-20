@@ -4,10 +4,12 @@ import fs from "node:fs";
 // If src/reports/bn/<name>.md exists, it is linked as the Bangla edition.
 export default {
   layout: "layouts/report.njk",
-  permalink: "/reports/{{ page.fileSlug }}/",
   eleventyComputed: {
+    // draft: true = not published at all (no page, not in lists or search)
+    permalink: (data) => (data.draft ? false : `/reports/${data.page.fileSlug}/`),
+    eleventyExcludeFromCollections: (data) => Boolean(data.draft),
     altBn: (data) =>
-      data.lang !== "bn" && fs.existsSync(`src/reports/bn/${data.page.fileSlug}.md`)
+      data.lang !== "bn" && !data.draft && fs.existsSync(`src/reports/bn/${data.page.fileSlug}.md`)
         ? `/bn/reports/${data.page.fileSlug}/`
         : undefined,
   },
