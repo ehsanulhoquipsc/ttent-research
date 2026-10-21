@@ -1,5 +1,6 @@
 # Doctren admin panel (Sveltia CMS) — opens at https://doctren.com/admin
 # Every save is a commit to GitHub; Netlify republishes the site in about a minute.
+# Topic lists below must match the topic names in src/_data/site.js.
 
 backend:
   name: github
@@ -49,6 +50,14 @@ collections:
         widget: string
         hint: "Lowercase words joined by hyphens, e.g. volunteer-retention. The report will be at doctren.com/reports/volunteer-retention/. Don't change it after publishing."
         pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Use lowercase letters, numbers and hyphens only, e.g. volunteer-retention']
+      - label: Language this report is written in
+        name: language
+        widget: select
+        default: en
+        options:
+          - { label: English, value: en }
+          - { label: বাংলা (Bangla original), value: bn }
+        hint: "Choose বাংলা if the report is written in Bangla. It then shows on both sites with Bangla menus."
       - label: Short description
         name: description
         widget: text
@@ -62,7 +71,7 @@ collections:
       - label: Topic
         name: topic
         widget: select
-        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Community improvement"]
+        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Health", "Community improvement"]
       - label: Authors
         name: authors
         widget: list
@@ -171,7 +180,7 @@ collections:
       - label: Topic (same as English)
         name: topic
         widget: select
-        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Community improvement"]
+        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Health", "Community improvement"]
       - label: Authors
         name: authors
         widget: list

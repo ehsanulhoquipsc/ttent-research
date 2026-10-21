@@ -64,6 +64,13 @@ export default {
       descriptionBn: "কর্মক্ষেত্রে, আইনে ও সমাজে ন্যায্য আচরণ, এবং ব্যবধান কমাতে প্রমাণ কী বলে।",
     },
     {
+      name: "Health",
+      nameBn: "স্বাস্থ্য",
+      slug: "health",
+      description: "Public health and wellbeing: what the evidence says about everyday health problems and how communities can respond.",
+      descriptionBn: "জনস্বাস্থ্য ও সুস্থতা: দৈনন্দিন স্বাস্থ্য সমস্যা নিয়ে প্রমাণ কী বলে, আর সমাজ কীভাবে সাড়া দিতে পারে।",
+    },
+    {
       name: "Community improvement",
       nameBn: "সমাজ উন্নয়ন",
       slug: "community-improvement",

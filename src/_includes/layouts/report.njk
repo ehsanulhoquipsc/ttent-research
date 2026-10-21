@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 section: research
 ---
-{%- set L = lang or "en" -%}
+{%- set L = lang or ("bn" if language == "bn" else "en") -%}
 {%- set t = i18n[L] -%}
 {%- set p = "/bn" if L == "bn" else "" -%}
 {%- set sections = content | toc -%}
@@ -78,7 +78,7 @@ section: research
       <dl class="facts">
         <dt>{{ t.topic }}</dt><dd>{{ topic | topicName(L) }}</dd>
         <dt>{{ t.languages }}</dt>
-        <dd>{% if L == "bn" %}<a href="{{ altEn }}" lang="en" hreflang="en">English</a>, বাংলা{% elif altBn %}English, <a href="{{ altBn }}" lang="bn" hreflang="bn">বাংলা</a>{% else %}English{% endif %}</dd>
+        <dd>{% if language == "bn" and not lang %}বাংলা{% elif L == "bn" %}<a href="{{ altEn }}" lang="en" hreflang="en">English</a>, বাংলা{% elif altBn %}English, <a href="{{ altBn }}" lang="bn" hreflang="bn">বাংলা</a>{% else %}English{% endif %}</dd>
         <dt>{{ t.licence }}</dt><dd><a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license" lang="en">{{ licence or site.legal.contentLicence.short }}</a></dd>
         {% if pdf %}<dt>PDF</dt><dd><a href="{{ pdf }}" download>{{ t.download }}</a></dd>{% endif %}
       </dl>

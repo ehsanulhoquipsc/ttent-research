@@ -5,8 +5,8 @@
   {% if featured %}
   <section class="featured" aria-labelledby="featured-title">
     <p class="kicker">{{ t.featured }}</p>
-    <h1 id="featured-title"{% if L == "bn" and not featured.translated %} lang="en"{% endif %}><a href="{{ featured.url }}">{{ featured.title }}</a></h1>
-    <p class="standfirst"{% if L == "bn" and not featured.translated %} lang="en"{% endif %}>{{ featured.description }}</p>
+    <h1 id="featured-title"{% if L == "bn" and not featured.translated %} lang="en"{% elif L == "en" and featured.bnOriginal %} lang="bn"{% endif %}><a href="{{ featured.url }}">{{ featured.title }}</a></h1>
+    <p class="standfirst"{% if L == "bn" and not featured.translated %} lang="en"{% elif L == "en" and featured.bnOriginal %} lang="bn"{% endif %}>{{ featured.description }}</p>
     <p class="featured-links">
       <time datetime="{{ featured.date | isoDate }}">{{ featured.date | readableDate(L) }}</time>
       <a href="{{ featured.url }}">{{ t.readOnline }}</a>

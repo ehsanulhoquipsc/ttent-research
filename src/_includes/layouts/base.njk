@@ -1,7 +1,12 @@
-{%- set L = lang or "en" -%}
+{%- set L = lang or ("bn" if language == "bn" else "en") -%}
 {%- set t = i18n[L] -%}
 {%- set p = "/bn" if L == "bn" else "" -%}
-{%- if L == "bn" -%}
+{%- if L == "bn" and language == "bn" and not lang -%}
+  {#- a report written in Bangla with no English edition -#}
+  {%- set bnUrl = page.url -%}
+  {%- set enUrl = "/research/" -%}
+  {%- set hasPair = false -%}
+{%- elif L == "bn" -%}
   {%- set bnUrl = page.url -%}
   {%- set enUrl = page.url | replace("/bn/", "/") -%}
   {%- set hasPair = true -%}

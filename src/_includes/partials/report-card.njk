@@ -1,4 +1,4 @@
-<article class="card"{% if L == "bn" and not c.translated %} lang="en"{% endif %}>
+<article class="card"{% if L == "bn" and not c.translated %} lang="en"{% elif L == "en" and c.bnOriginal %} lang="bn"{% endif %}>
   <div class="card-text">
     <h3 class="card-title"><a href="{{ c.url }}">{{ c.title }}</a></h3>
     <p class="card-desc">{{ c.description }}</p>

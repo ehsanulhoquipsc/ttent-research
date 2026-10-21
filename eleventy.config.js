@@ -43,8 +43,9 @@ export default function (eleventyConfig) {
         date: r.date,
         thumbnail: r.data.thumbnail,
         pdf: src.data.pdf || r.data.pdf,
-        hasBn: Boolean(bn),
-        translated: lang === "bn" && Boolean(bn),
+        hasBn: Boolean(bn) || r.data.language === "bn",
+        translated: lang === "bn" && (Boolean(bn) || r.data.language === "bn"),
+        bnOriginal: r.data.language === "bn",
       };
     })
   );
