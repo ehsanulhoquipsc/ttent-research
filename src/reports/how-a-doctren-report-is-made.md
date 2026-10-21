@@ -8,13 +8,10 @@ authors:
 # reviewer: "Name of guest reviewer"
 # thumbnail: /files/how-a-doctren-report-is-made.jpg
 # pdf: /files/how-a-doctren-report-is-made.pdf
+abstract: "Doctren is a non-profit research organisation whose research groups plan, discuss and carry out their work together. This report explains how a single question becomes a published paper: a project is set up in agent or manual mode, research agents gather sources for their part, the lead researcher writes the paper from those findings, and guest reviewers check the outcome before it appears on this site."
+url_name: how-a-doctren-report-is-made
+draft: false
 ---
-
-<div class="abstract">
-
-**Abstract.** Doctren is a non-profit research organisation whose research groups plan, discuss and carry out their work together. This report explains how a single question becomes a published paper: a project is set up in agent or manual mode, research agents gather sources for their part, the lead researcher writes the paper from those findings, and guest reviewers check the outcome before it appears on this site.
-
-</div>
 
 ## Starting a project
 

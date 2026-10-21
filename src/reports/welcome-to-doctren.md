@@ -5,7 +5,10 @@ date: 2026-10-14
 topic: Knowledge
 authors:
   - Doctren Research Team
+url_name: welcome-to-doctren
+draft: false
 ---
+
 
 ## Why this site exists
 

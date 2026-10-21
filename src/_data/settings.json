@@ -1,0 +1,29 @@
+{
+  "contactEmail": "contact@doctren.com",
+  "workspaceUrl": "https://ctent.onrender.com",
+  "entityName": "[Legal entity name, e.g. Doctren Research Inc.]",
+  "abn": "[ABN]",
+  "address": "[Postal address]",
+  "social": [
+    {
+      "name": "Facebook",
+      "url": "#"
+    },
+    {
+      "name": "Instagram",
+      "url": "#"
+    },
+    {
+      "name": "X",
+      "url": "#"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "#"
+    },
+    {
+      "name": "YouTube",
+      "url": "#"
+    }
+  ]
+}

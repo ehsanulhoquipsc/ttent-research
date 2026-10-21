@@ -13,6 +13,9 @@ export default function (eleventyConfig) {
   // Copy static files straight to the output
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/files");
+  // Admin panel (Sveltia CMS) is copied as-is, not built as a page
+  eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.ignores.add("src/admin/**");
 
   // English reports, newest first. Every report starts in English.
   eleventyConfig.addCollection("reports", (api) =>

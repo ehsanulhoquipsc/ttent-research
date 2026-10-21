@@ -5,7 +5,10 @@ date: 2026-10-14
 topic: Knowledge
 authors:
   - Doctren গবেষণা দল
+english: welcome-to-doctren
+draft: false
 ---
+
 
 ## এই সাইট কেন
 

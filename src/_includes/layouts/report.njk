@@ -46,13 +46,14 @@ section: research
 
     <article class="prose" data-pagefind-body>
       <span data-pagefind-meta="{{ 'বিষয়' if L == 'bn' else 'topic' }}" hidden>{{ topic | topicName(L) }}</span>
-      {% if retracted %}
+      {% if retracted and retracted.reason %}
       <div class="notice notice--retracted" role="note"><strong>{{ t.retractedOn }} {{ retracted.date | readableDate(L) }}</strong>{{ retracted.reason }} <a href="/editorial-policy/#corrections">{{ t.aboutRetractions }}</a></div>
       {% endif %}
-      {% for c in corrections %}
+      {% for c in corrections %}{% if c.note %}
       <div class="notice" role="note"><strong>{{ t.correction }}, {{ c.date | readableDate(L) }}</strong>{{ c.note }}</div>
-      {% endfor %}
+      {% endif %}{% endfor %}
       {% if thumbnail %}<figure class="lead-figure"><img src="{{ thumbnail }}" alt="{{ thumbnailAlt or '' }}"></figure>{% endif %}
+      {% if abstract %}<div class="abstract"><p><strong>{{ t.abstract }}{{ '।' if L == 'bn' else '.' }}</strong> {{ abstract }}</p></div>{% endif %}
       {{ content | safe }}
 
       <section class="declarations" aria-labelledby="declarations-title">

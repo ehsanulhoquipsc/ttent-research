@@ -1,49 +1,6 @@
 {%- set L = lang or "en" -%}{%- set t = i18n[L] -%}{%- set p = "/bn" if L == "bn" else "" -%}
-{%- if L == "bn" -%}
-{%- set c = {
-  kicker: "Doctren সম্পর্কে",
-  title: "স্বাধীন গবেষণা, সবার জন্য উন্মুক্ত।",
-  lede: "Doctren একটি অলাভজনক গবেষণা প্রতিষ্ঠান। আমাদের গবেষণা দলগুলো একসঙ্গে পরিকল্পনা, আলোচনা ও কাজ করে, আর তাদের ফলাফল এই সাইটে প্রকাশ করা হয়: ইংরেজি ও বাংলায়, সবার জন্য বিনামূল্যে।",
-  pillarsTitle: "আমাদের কাজের মূলনীতি",
-  pillars: [
-    { title: "উন্মুক্ত গবেষণা", text: "[স্বাধীন, অলাভজনক ও বিনামূল্যে পড়ার সুযোগ নিয়ে দুই-তিন লাইন।]" },
-    { title: "জ্ঞান", text: "[যত্নশীল গবেষণা, সৎ তথ্যসূত্র এবং শেখা বিষয় সবার সঙ্গে ভাগ করা নিয়ে দুই-তিন লাইন।]" },
-    { title: "ন্যায্য অধিকার ও উন্নয়ন", text: "[ন্যায্যতা এবং গবেষণাকে বাস্তব উন্নয়নে রূপ দেওয়া নিয়ে দুই-তিন লাইন।]" }
-  ],
-  stepsTitle: "একটি প্রতিবেদন যেভাবে তৈরি হয়",
-  stepLabel: "ধাপ",
-  steps: [
-    { title: "একটি প্রশ্ন", text: "একটি গবেষণা দল প্রকল্প শুরু করে এবং এজেন্ট বা ম্যানুয়াল পদ্ধতি বেছে নেয়।" },
-    { title: "গবেষণা", text: "এজেন্ট বা সদস্যরা নিজ নিজ অংশের তথ্য, বই ও তথ্যসূত্র সংগ্রহ করেন।" },
-    { title: "লেখা", text: "প্রধান গবেষক সংগৃহীত তথ্য থেকে প্রতিবেদন লেখেন।" },
-    { title: "পর্যালোচনা", text: "অতিথি পর্যালোচক চূড়ান্ত ফলাফল যাচাই করেন।" },
-    { title: "প্রকাশ", text: "অনলাইনে ও পিডিএফ আকারে, ইংরেজি ও বাংলায়।" }
-  ],
-  quote: "সৎ প্রশ্ন করুন। যা জানলেন, সবার সঙ্গে ভাগ করুন।"
-} -%}
-{%- else -%}
-{%- set c = {
-  kicker: "About Doctren",
-  title: "Independent research, open to everyone.",
-  lede: "Doctren is a non-profit research organisation. Our research groups plan, discuss and carry out their work together, and this site is where we publish what they find, free to read in English and Bangla.",
-  pillarsTitle: "What guides our work",
-  pillars: [
-    { title: "Open research", text: "[Two or three lines on staying independent, non-profit and free to read.]" },
-    { title: "Knowledge", text: "[Two or three lines on careful research, honest sources and sharing what is learned.]" },
-    { title: "Fair rights & improvement", text: "[Two or three lines on fairness and turning research into real improvement.]" }
-  ],
-  stepsTitle: "How a report is made",
-  stepLabel: "Step",
-  steps: [
-    { title: "A question", text: "A research group sets up a project and chooses agent or manual mode." },
-    { title: "Research", text: "Agents or members each research their part: data, books, references." },
-    { title: "Writing", text: "The lead researcher writes the paper from the findings." },
-    { title: "Review", text: "Guest reviewers check the final outcome." },
-    { title: "Published", text: "Online and as a PDF, in English and Bangla." }
-  ],
-  quote: "Ask honest questions. Share what you find."
-} -%}
-{%- endif -%}
+{#- About page text is edited in the admin panel and stored in src/_data/about.json -#}
+{%- set c = about[L] -%}
 <div class="wrap">
   <header class="page-head two-col">
     <div>

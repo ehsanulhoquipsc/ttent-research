@@ -1,0 +1,249 @@
+# Doctren admin panel (Sveltia CMS) — opens at https://doctren.com/admin
+# Every save is a commit to GitHub; Netlify republishes the site in about a minute.
+
+backend:
+  name: github
+  repo: ehsanulhoquipsc/ttent-research
+  branch: main
+  commit_messages:
+    create: "Add {{collection}}: {{slug}}"
+    update: "Update {{collection}}: {{slug}}"
+    delete: "Delete {{collection}}: {{slug}}"
+    uploadMedia: "Upload {{path}}"
+    deleteMedia: "Delete {{path}}"
+
+site_url: https://doctren.com
+display_url: https://doctren.com
+logo_url: /assets/img/favicon.svg
+
+# PDFs and pictures
+media_folder: src/files
+public_folder: /files
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ---------------------------------------------------------------- English reports
+  - name: reports
+    label: Reports (English)
+    label_singular: Report
+    description: Every English report on doctren.com. The newest date is featured on the home page. Turn on "Hide (draft)" to take a report offline without deleting it.
+    folder: src/reports
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{url_name}}"
+    identifier_field: title
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    preview_path: "reports/{{slug}}/"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Web address name
+        name: url_name
+        widget: string
+        hint: "Lowercase words joined by hyphens, e.g. volunteer-retention. The report will be at doctren.com/reports/volunteer-retention/. Don't change it after publishing."
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Use lowercase letters, numbers and hyphens only, e.g. volunteer-retention']
+      - label: Short description
+        name: description
+        widget: text
+        hint: One or two sentences shown under the title in every list.
+      - label: Publish date
+        name: date
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+        picker_utc: true
+      - label: Topic
+        name: topic
+        widget: select
+        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Community improvement"]
+      - label: Authors
+        name: authors
+        widget: list
+        required: false
+        field: { label: Author, name: author, widget: string }
+      - label: Reviewer
+        name: reviewer
+        widget: string
+        required: false
+      - label: Thumbnail picture
+        name: thumbnail
+        widget: image
+        required: false
+        hint: "3:2 shape, about 1200 × 800 pixels."
+      - label: Thumbnail description (for screen readers)
+        name: thumbnailAlt
+        widget: string
+        required: false
+      - label: PDF
+        name: pdf
+        widget: file
+        required: false
+      - label: Abstract
+        name: abstract
+        widget: text
+        required: false
+        hint: Shown in a box at the top of the report.
+      - label: Report text
+        name: body
+        widget: markdown
+        hint: "Use Heading 2 for each section; they appear in the Contents list."
+      - label: Funding
+        name: funding
+        widget: string
+        required: false
+        default: "None. This report received no specific funding."
+      - label: Conflicts of interest
+        name: conflicts
+        widget: string
+        required: false
+        default: "The authors declare no conflicts of interest."
+      - label: AI research tools
+        name: aiTools
+        widget: string
+        required: false
+        hint: Say whether AI research tools were used (Editorial policy).
+      - label: Corrections
+        name: corrections
+        widget: list
+        required: false
+        hint: Add one each time a fact, figure or source is corrected. Shown as a dated notice at the top.
+        fields:
+          - { label: Date, name: date, widget: datetime, time_format: false, format: YYYY-MM-DD, picker_utc: true }
+          - { label: What changed, name: note, widget: text }
+      - label: Retraction
+        name: retracted
+        widget: object
+        required: false
+        collapsed: true
+        hint: Only if the report's main findings are withdrawn.
+        fields:
+          - { label: Date, name: date, widget: datetime, time_format: false, format: YYYY-MM-DD, picker_utc: true, required: false }
+          - { label: Reason, name: reason, widget: text, required: false }
+      - label: Hide (draft)
+        name: draft
+        widget: boolean
+        default: false
+        hint: "On = not on the website. Turn off to publish."
+
+  # ---------------------------------------------------------------- Bangla editions
+  - name: reports_bn
+    label: Reports (বাংলা editions)
+    label_singular: Bangla edition
+    description: The Bangla translation of an English report. Pick the English report first; the two are linked automatically.
+    folder: src/reports/bn
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{english}}"
+    identifier_field: title
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    preview_path: "bn/reports/{{slug}}/"
+    fields:
+      - label: English report this translates
+        name: english
+        widget: relation
+        collection: reports
+        value_field: "{{slug}}"
+        search_fields: [title]
+        display_fields: [title]
+        hint: "Choose before saving the first time; it can't be changed later."
+      - label: Title (Bangla)
+        name: title
+        widget: string
+      - label: Short description (Bangla)
+        name: description
+        widget: text
+      - label: Publish date (same as English)
+        name: date
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+        picker_utc: true
+      - label: Topic (same as English)
+        name: topic
+        widget: select
+        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Community improvement"]
+      - label: Authors
+        name: authors
+        widget: list
+        required: false
+        field: { label: Author, name: author, widget: string }
+      - label: Bangla PDF
+        name: pdf
+        widget: file
+        required: false
+      - label: Abstract (Bangla)
+        name: abstract
+        widget: text
+        required: false
+      - label: Report text (Bangla)
+        name: body
+        widget: markdown
+      - label: Hide (draft)
+        name: draft
+        widget: boolean
+        default: false
+
+  # ---------------------------------------------------------------- Pages and settings
+  - name: pages
+    label: Pages & settings
+    label_singular: Page
+    files:
+      - name: about
+        label: About page
+        file: src/_data/about.json
+        preview_path: "about/"
+        fields:
+          - label: English
+            name: en
+            widget: object
+            fields: &aboutFields
+              - { label: Small heading, name: kicker, widget: string }
+              - { label: Main heading, name: title, widget: string }
+              - { label: Introduction, name: lede, widget: text }
+              - { label: Principles heading, name: pillarsTitle, widget: string }
+              - label: Principles
+                name: pillars
+                widget: list
+                fields:
+                  - { label: Name, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+              - { label: Steps heading, name: stepsTitle, widget: string }
+              - { label: Word before each step number, name: stepLabel, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                fields:
+                  - { label: Name, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+              - { label: Quote, name: quote, widget: string }
+          - label: বাংলা
+            name: bn
+            widget: object
+            fields: *aboutFields
+
+      - name: settings
+        label: Site settings
+        file: src/_data/settings.json
+        fields:
+          - { label: Contact email, name: contactEmail, widget: string }
+          - { label: Research workspace link, name: workspaceUrl, widget: string }
+          - label: Social media links
+            name: social
+            widget: list
+            hint: "Put the full profile link, e.g. https://www.facebook.com/doctren"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Link, name: url, widget: string }
+          - { label: Organisation's legal name, name: entityName, widget: string }
+          - { label: ABN, name: abn, widget: string }
+          - { label: Postal address, name: address, widget: string }

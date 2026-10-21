@@ -1,17 +1,23 @@
-// Site-wide settings. Edit these, no code knowledge needed.
+// Site-wide settings.
+// Email, social links and the organisation's legal details are edited in the admin
+// panel (doctren.com/admin -> Site settings) and stored in settings.json.
+import { readFileSync } from "node:fs";
+
+const settings = JSON.parse(readFileSync(new URL("./settings.json", import.meta.url), "utf8"));
+
 export default {
   name: "Doctren",
   description: "Independent, non-profit research from Doctren, free to read in English and Bangla.",
   descriptionBn: "Doctren-এর স্বাধীন, অলাভজনক গবেষণা, ইংরেজি ও বাংলায় বিনামূল্যে পড়ুন।",
   url: "https://doctren.com",
-  contactEmail: "contact@doctren.com",
-  workspaceUrl: "https://ctent.onrender.com",
+  contactEmail: settings.contactEmail,
+  workspaceUrl: settings.workspaceUrl,
 
   // Used in the legal pages. Fill these in before launch.
   legal: {
-    entityName: "[Legal entity name, e.g. Doctren Research Inc.]",
-    abn: "[ABN]",
-    address: "[Postal address]",
+    entityName: settings.entityName,
+    abn: settings.abn,
+    address: settings.address,
     jurisdiction: "New South Wales, Australia",
     lastUpdated: "2026-10-20",
     contentLicence: {
@@ -31,14 +37,7 @@ export default {
     { name: "Accessibility", url: "/accessibility/" },
   ],
 
-  // Replace "#" with your real profile links
-  social: [
-    { name: "Facebook", url: "#" },
-    { name: "Instagram", url: "#" },
-    { name: "X", url: "#" },
-    { name: "LinkedIn", url: "#" },
-    { name: "YouTube", url: "#" },
-  ],
+  social: settings.social,
 
   // The topic of every report must match one of these English names exactly.
   // nameBn / descriptionBn are shown on the Bangla site.
