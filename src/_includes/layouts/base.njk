@@ -103,19 +103,20 @@
           <a href="/disclaimer/">{{ t.disclaimer }}</a>
           <a href="/accessibility/">{{ t.accessibility }}</a>
         </div>
+        {% if site.social.length %}
         <div class="footer-col">
           <p class="footer-head">{{ t.follow }}</p>
           {% for s in site.social %}<a href="{{ s.url }}" rel="noopener" lang="en">{{ s.name }}</a>{% endfor %}
         </div>
+        {% endif %}
       </nav>
     </div>
     <div class="wrap footer-bottom">
       {% if L == "bn" %}
-      <p>© {{ site.legal.lastUpdated | year("bn") }} Doctren। অন্যভাবে উল্লেখ না থাকলে প্রতিবেদনগুলো <a href="{{ site.legal.contentLicence.url }}" rel="license noopener" lang="en">{{ site.legal.contentLicence.short }}</a> লাইসেন্সের অধীনে প্রকাশিত। {{ t.legalEnglishNote }}</p>
+      <p>© {{ buildYear | num("bn") | replace(",", "") }} Doctren। অন্যভাবে উল্লেখ না থাকলে প্রতিবেদনগুলো <a href="{{ site.legal.contentLicence.url }}" rel="license noopener" lang="en">{{ site.legal.contentLicence.short }}</a> লাইসেন্সের অধীনে প্রকাশিত। {{ t.legalEnglishNote }}</p>
       {% else %}
-      <p>© {{ site.legal.lastUpdated | year }} {{ site.name }}. Reports are licensed under <a href="{{ site.legal.contentLicence.url }}" rel="license noopener">{{ site.legal.contentLicence.short }}</a> unless otherwise stated.</p>
+      <p>© {{ buildYear }} {{ site.name }}. Reports are licensed under <a href="{{ site.legal.contentLicence.url }}" rel="license noopener">{{ site.legal.contentLicence.short }}</a> unless otherwise stated.</p>
       {% endif %}
-      <p lang="en">{{ site.legal.entityName }} · ABN {{ site.legal.abn }}</p>
     </div>
   </footer>
 </body>

@@ -7,7 +7,7 @@ pagination:
   alias: topicItem
 permalink: "/bn/topics/{{ topicItem.slug }}/"
 eleventyComputed:
-  title: "{{ topicItem.nameBn }}"
-  description: "{{ topicItem.descriptionBn }}"
+  title: "{{ topicItem.nameBn | safe }}"
+  description: "{{ topicItem.descriptionBn | safe }}"
 ---
 {% include "pages/topic.njk" %}

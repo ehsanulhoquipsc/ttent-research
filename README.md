@@ -4,10 +4,14 @@ The public research site for Doctren, published at [doctren.com](https://doctren
 
 ## Publish a new report
 
+**Easiest: the admin panel at [doctren.com/admin](https://doctren.com/admin).** Sign in with GitHub, then add or edit reports, Bangla editions, PDFs and pictures, the About page and site settings. Each save goes live in about a minute.
+
+Or by hand on GitHub:
+
 1. Copy `report-template.md` into `src/reports/` and rename it, for example `src/reports/volunteer-retention.md`. The file name becomes the web address: `/reports/volunteer-retention/`.
 2. Fill in the details at the top (title, description, date, topic, authors) and write the report below it. Each `##` heading becomes an entry in the contents list.
 3. Put the PDF and thumbnail image in `src/files/`, and point `pdf:` and `thumbnail:` at them (e.g. `/files/volunteer-retention.pdf`). Thumbnails look best at 3:2, around 1200 × 800 px.
-4. Delete the `draft: true` line when it's ready.
+4. Set `draft: false` when it's ready.
 5. Commit and push (or upload the files on github.com). Netlify rebuilds the site in about a minute.
 
 The new report appears automatically on the home page (the newest report is featured), in All research, in its topic page, and in search.
@@ -22,7 +26,9 @@ Interface text (menus, buttons, labels) is in `src/_data/i18n.js`. Bangla topic 
 
 ## Change site settings
 
-Edit `src/_data/site.js` for the site name, contact email, social media links and the list of topics. A report's `topic:` must match one of the topic names exactly.
+Contact email, social media links and the organisation's legal name, ABN and address are edited in the admin panel (**Pages & settings → Site settings**) and stored in `src/_data/settings.json`. Empty values are simply not shown on the site.
+
+Topics are listed in `src/_data/site.js`. When you add a topic there, also add its name to the two `options:` lists for `topic` in `src/admin/config.yml`. A report's `topic:` must match one of the topic names exactly.
 
 ## Contact form
 

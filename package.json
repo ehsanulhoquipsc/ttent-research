@@ -2,9 +2,10 @@
   "name": "doctren",
   "version": "1.0.0",
   "private": true,
-  "description": "Doctren research site — static HTML/CSS site built with Eleventy",
+  "type": "module",
+  "description": "Doctren research site \u2014 static HTML/CSS site built with Eleventy",
   "scripts": {
-    "build": "eleventy && pagefind --site _site",
+    "build": "eleventy && pagefind --site _site --force-language en",
     "start": "eleventy --serve",
     "clean": "rm -rf _site"
   },

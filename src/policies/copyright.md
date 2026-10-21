@@ -37,7 +37,7 @@ You must not suggest that {{ site.name }} or the authors endorse you or your use
 
 **Our name and logo.** The {{ site.name }} name, logo and emblem identify our organisation. They are not licensed under {{ site.legal.contentLicence.short }} and may not be used without our written permission, except to refer to us accurately (for example, in a citation or news article).
 
-**Website design.** The design and code of this website are © {{ site.legal.entityName }}, all rights reserved.
+**Website design.** The design and code of this website are © {{ site.legal.entityName or site.name }}, all rights reserved.
 
 ## Translations
 

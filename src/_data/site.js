@@ -5,19 +5,26 @@ import { readFileSync } from "node:fs";
 
 const settings = JSON.parse(readFileSync(new URL("./settings.json", import.meta.url), "utf8"));
 
+// A value counts only when it is filled in (not empty, not a "[placeholder]", not "#")
+const filled = (v) => typeof v === "string" && v.trim() !== "" && !v.trim().startsWith("[") && v.trim() !== "#";
+
 export default {
   name: "Doctren",
   description: "Independent, non-profit research from Doctren, free to read in English and Bangla.",
   descriptionBn: "Doctren-এর স্বাধীন, অলাভজনক গবেষণা, ইংরেজি ও বাংলায় বিনামূল্যে পড়ুন।",
   url: "https://doctren.com",
-  contactEmail: settings.contactEmail,
-  workspaceUrl: settings.workspaceUrl,
+  contactEmail: filled(settings.contactEmail) ? settings.contactEmail.trim() : "",
+  workspaceUrl: filled(settings.workspaceUrl) ? settings.workspaceUrl.trim() : "",
 
   // Used in the legal pages. Fill these in before launch.
   legal: {
-    entityName: settings.entityName,
-    abn: settings.abn,
-    address: settings.address,
+    entityName: filled(settings.entityName) ? settings.entityName.trim() : "",
+    abn: filled(settings.abn) ? settings.abn.trim() : "",
+    address: filled(settings.address) ? settings.address.trim() : "",
+    // "Doctren" or "Doctren Research Inc. (ABN 12 345 678 901)"
+    operator:
+      (filled(settings.entityName) ? settings.entityName.trim() : "Doctren") +
+      (filled(settings.abn) ? ` (ABN ${settings.abn.trim()})` : ""),
     jurisdiction: "New South Wales, Australia",
     lastUpdated: "2026-10-20",
     contentLicence: {
@@ -37,7 +44,8 @@ export default {
     { name: "Accessibility", url: "/accessibility/" },
   ],
 
-  social: settings.social,
+  // Only links that have been filled in are shown
+  social: (settings.social || []).filter((x) => x && filled(x.name) && filled(x.url)),
 
   // The topic of every report must match one of these English names exactly.
   // nameBn / descriptionBn are shown on the Bangla site.

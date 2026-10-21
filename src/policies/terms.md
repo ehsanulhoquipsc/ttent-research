@@ -5,7 +5,7 @@ summary: The rules for using this website. By using the site you agree to these 
 
 ## About these terms
 
-These terms apply to your use of this website, run by {{ site.legal.entityName }} (ABN {{ site.legal.abn }}). If you do not agree with them, please do not use the site.
+These terms apply to your use of this website, run by {{ site.legal.operator }}. If you do not agree with them, please do not use the site.
 
 ## Using the site
 

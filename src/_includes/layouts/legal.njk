@@ -21,7 +21,7 @@ section: legal
 
       <div class="legal-contact">
         <h2>Contact</h2>
-        <p>Questions about this page? Email <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>, use our <a href="/contact/">contact form</a>, or write to {{ site.legal.entityName }}, {{ site.legal.address }}.</p>
+        <p>Questions about this page? {% if site.contactEmail %}Email <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a> or use{% else %}Use{% endif %} our <a href="/contact/">contact form</a>{% if site.legal.address %}, or write to {{ site.legal.entityName or site.name }}, {{ site.legal.address }}{% endif %}.</p>
       </div>
     </article>
   </div>

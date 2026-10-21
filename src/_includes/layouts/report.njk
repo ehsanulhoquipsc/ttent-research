@@ -7,17 +7,19 @@ section: research
 {%- set p = "/bn" if L == "bn" else "" -%}
 {%- set sections = content | toc -%}
 {%- set team = site.name + " " + t.researchTeam -%}
+{%- set people = authors | compact -%}
+{%- set tslug = topic | topicSlug -%}
 <div class="wrap">
   <nav class="breadcrumb" aria-label="{{ t.breadcrumb }}">
     <a href="{{ p }}/research/">{{ t.research }}</a> <span aria-hidden="true">›</span>
-    <a href="{{ p }}/topics/{{ topic | topicSlug }}/">{{ topic | topicName(L) }}</a>
+    {% if tslug %}<a href="{{ p }}/topics/{{ tslug }}/">{{ topic | topicName(L) }}</a>{% endif %}
   </nav>
 
   <header class="report-head">
     <p class="kicker">{{ t.researchReport }} · {{ topic | topicName(L) }}</p>
     <h1 class="report-title" data-pagefind-meta="title">{{ title }}</h1>
     {% if description %}<p class="standfirst">{{ description }}</p>{% endif %}
-    {% if authors %}<p class="authors">{% for a in authors %}<span>{{ a }}</span>{% endfor %}</p>{% endif %}
+    {% if people.length %}<p class="authors">{% for a in people %}<span>{{ a }}</span>{% endfor %}</p>{% endif %}
     <p class="meta">
       {{ t.published }} <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate(L) }}</time>
       · {{ content | readingTime(L) }}
@@ -31,7 +33,7 @@ section: research
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>{{ t.downloadPdf }}</a>{% endif %}
       <details class="cite">
         <summary class="btn btn-outline">{{ t.cite }}</summary>
-        <p class="cite-box">{% if authors %}{{ authors | join(", ") }}{% else %}{{ team }}{% endif %} ({{ page.date | year }}). <em>{{ title }}.</em> {{ site.name }}. {{ site.url }}{{ page.url }}</p>
+        <p class="cite-box">{% if people.length %}{{ people | join(", ") }}{% else %}{{ team }}{% endif %} ({{ page.date | year }}). <em>{{ title }}.</em> {{ site.name }}. {{ site.url }}{{ page.url }}</p>
       </details>
     </div>
   </div>
@@ -64,7 +66,7 @@ section: research
           {% if aiTools %}<dt>{{ t.aiTools }}</dt><dd>{{ aiTools }}</dd>{% endif %}
           {% if reviewer %}<dt>{{ t.review }}</dt><dd>{% if L == "bn" %}প্রকাশের আগে {{ reviewer }} পর্যালোচনা করেছেন।{% else %}Reviewed by {{ reviewer }} before publication.{% endif %}</dd>{% endif %}
           <dt>{{ t.licence }}</dt>
-          <dd>© {{ page.date | year(L) }} {% if authors %}{{ authors | join(", ") }}{% else %}{{ team }}{% endif %}.
+          <dd>© {{ page.date | year(L) }} {% if people.length %}{{ people | join(", ") }}{% else %}{{ team }}{% endif %}.
             {% if L == "bn" %}<a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license" lang="en">{{ licence or site.legal.contentLicence.name }}</a> লাইসেন্সের অধীনে প্রকাশিত। বিস্তারিত: <a href="/copyright/">{{ t.copyright }}</a>।
             {% else %}Published under <a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license">{{ licence or site.legal.contentLicence.name }}</a>. See <a href="/copyright/">Copyright &amp; licensing</a>.{% endif %}</dd>
           <dt>{{ t.disclaimer }}</dt>
@@ -80,7 +82,7 @@ section: research
         <dt>{{ t.languages }}</dt>
         <dd>{% if language == "bn" and not lang %}বাংলা{% elif L == "bn" %}<a href="{{ altEn }}" lang="en" hreflang="en">English</a>, বাংলা{% elif altBn %}English, <a href="{{ altBn }}" lang="bn" hreflang="bn">বাংলা</a>{% else %}English{% endif %}</dd>
         <dt>{{ t.licence }}</dt><dd><a href="{{ licenceUrl or site.legal.contentLicence.url }}" rel="license" lang="en">{{ licence or site.legal.contentLicence.short }}</a></dd>
-        {% if pdf %}<dt>PDF</dt><dd><a href="{{ pdf }}" download>{{ t.download }}</a></dd>{% endif %}
+        {% if pdf %}<dt>{{ t.pdf }}</dt><dd><a href="{{ pdf }}" download>{{ t.download }}</a></dd>{% endif %}
       </dl>
       {% set related = collections.reports | relatedTo(topic, page.fileSlug) | cards(L, collections.reportsBn) %}
       {% if related.length %}<p class="label related-label">{{ t.related }}</p>

@@ -28,9 +28,9 @@ slug:
 collections:
   # ---------------------------------------------------------------- English reports
   - name: reports
-    label: Reports (English)
+    label: Reports
     label_singular: Report
-    description: Every English report on doctren.com. The newest date is featured on the home page. Turn on "Hide (draft)" to take a report offline without deleting it.
+    description: Every report on doctren.com, in English or Bangla. The newest date is featured on the home page. Turn on "Hide (draft)" to take a report offline without deleting it.
     folder: src/reports
     extension: md
     format: frontmatter
@@ -102,7 +102,7 @@ collections:
       - label: Report text
         name: body
         widget: markdown
-        hint: "Use Heading 2 for each section; they appear in the Contents list."
+        hint: "Start each section with a heading; the headings appear in the Contents list."
       - label: Funding
         name: funding
         widget: string
@@ -145,7 +145,7 @@ collections:
   - name: reports_bn
     label: Reports (বাংলা editions)
     label_singular: Bangla edition
-    description: The Bangla translation of an English report. Pick the English report first; the two are linked automatically.
+    description: The Bangla translation of an English report. Pick the English report first; the two are linked automatically. A Bangla edition is only shown while its English report is published.
     folder: src/reports/bn
     extension: md
     format: frontmatter

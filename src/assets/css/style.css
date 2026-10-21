@@ -114,7 +114,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 
 /* Report card (lists) */
 .card { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px 24px; padding: 24px 0; border-bottom: 1px solid var(--rule); }
-.card-text { flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.card-text { overflow-wrap: anywhere; flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
 .card-title { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 23px; line-height: 1.3; }
 .card-title a { color: var(--ink); }
 .card-desc { margin: 0; font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -162,7 +162,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .related { font-family: var(--serif); font-size: 17px; line-height: 1.35; color: var(--ink); }
 
 /* Long-form reading */
-.prose { flex: 999 1 520px; min-width: 0; max-width: 700px; font-family: var(--serif); font-size: 19px; line-height: 1.7; color: #1e1c1a; }
+.prose { overflow-wrap: anywhere; flex: 999 1 520px; min-width: 0; max-width: 700px; font-family: var(--serif); font-size: 19px; line-height: 1.7; color: #1e1c1a; }
 .prose h2 { font-weight: 500; font-size: 28px; line-height: 1.25; margin: 40px 0 12px; scroll-margin-top: 16px; }
 .prose h2:first-of-type { margin-top: 0; }
 .prose h3 { font-weight: 600; font-size: 22px; margin: 28px 0 8px; }
@@ -250,13 +250,18 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   .declarations dd { margin-bottom: 10px; }
 }
 
-.about-mark { display: flex; justify-content: center; align-items: center; }
+.about-head { display: flex; flex-wrap: wrap; align-items: center; gap: 32px 64px; }
+.about-head > div:first-child { flex: 3 1 480px; min-width: 0; max-width: 760px; }
+.about-mark { flex: 1 1 160px; display: flex; justify-content: center; align-items: center; }
+.about-mark img { width: 160px; height: auto; }
+@media (max-width: 720px) { .about-mark { display: none; } }
+/* no white strip between a closing dark band and the footer */
+main:has(> .quote-band:last-child) + .site-footer { margin-top: 0; border-top: 1px solid #333333; }
 .page-title, .report-title, .featured h1 { font-weight: 500; letter-spacing: -0.015em; }
 
 /* Bangla pages */
-:lang(bn) .kicker, :lang(bn) .label, :lang(bn) .footer-head, :lang(bn) .section-head h2, :lang(bn) .declarations h2 { letter-spacing: 0; text-transform: none; font-size: 14px; }
+:lang(bn) .kicker, :lang(bn) .label, :lang(bn) .footer-head, :lang(bn) .section-head h2, :lang(bn) .declarations h2, :lang(bn) .pillar h3, :lang(bn) .quote-band span { letter-spacing: 0; text-transform: none; font-size: 14px; }
 :lang(bn) .prose { line-height: 1.85; }
 :lang(bn) .lede, :lang(bn) .standfirst, :lang(bn) .card-desc { line-height: 1.7; }
 :lang(bn) .page-title, :lang(bn) .report-title, :lang(bn) .featured h1 { line-height: 1.3; letter-spacing: 0; }
 :lang(bn) .card-title { line-height: 1.45; }
-:lang(en) .kicker, :lang(en) .label { letter-spacing: 0.14em; text-transform: uppercase; }

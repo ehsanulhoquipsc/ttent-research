@@ -29,9 +29,9 @@
       <h1 class="page-title">{{ c.title }}</h1>
       <p class="lede">{{ c.lede }}</p>
       <div class="contact-list">
-        <div><span class="label">{{ c.email }}</span><a href="mailto:{{ site.contactEmail }}" lang="en">{{ site.contactEmail }}</a></div>
-        <div><span class="label">{{ c.workspace }}</span><a href="{{ site.workspaceUrl }}" lang="en">{{ site.workspaceUrl | replace("https://", "") }}</a></div>
-        <div><span class="label">{{ c.follow }}</span><span lang="en">{% for s in site.social %}<a href="{{ s.url }}">{{ s.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span></div>
+        {% if site.contactEmail %}<div><span class="label">{{ c.email }}</span><a href="mailto:{{ site.contactEmail }}" lang="en">{{ site.contactEmail }}</a></div>{% endif %}
+        {% if site.workspaceUrl %}<div><span class="label">{{ c.workspace }}</span><a href="{{ site.workspaceUrl }}" lang="en">{{ site.workspaceUrl | replace("https://", "") }}</a></div>{% endif %}
+        {% if site.social.length %}<div><span class="label">{{ c.follow }}</span><span lang="en">{% for s in site.social %}<a href="{{ s.url }}">{{ s.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span></div>{% endif %}
       </div>
     </div>
 

@@ -12,7 +12,7 @@ summary: What we collect when you use this site, why, and the choices you have. 
 
 ## Who we are
 
-This site is run by {{ site.legal.entityName }} (ABN {{ site.legal.abn }}), referred to as "{{ site.name }}", "we" or "us". We are a non-profit research organisation based in {{ site.legal.jurisdiction }}.
+This site is run by {{ site.legal.operator }}, referred to as "{{ site.name }}", "we" or "us". We are a non-profit research organisation based in {{ site.legal.jurisdiction }}.
 
 We handle personal information in line with the Australian Privacy Principles in the *Privacy Act 1988* (Cth). Where the EU or UK General Data Protection Regulation applies to you, we also respect the rights it gives you.
 
