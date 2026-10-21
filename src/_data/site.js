@@ -14,7 +14,6 @@ export default {
   descriptionBn: "Doctren-এর স্বাধীন, অলাভজনক গবেষণা, ইংরেজি ও বাংলায় বিনামূল্যে পড়ুন।",
   url: "https://doctren.com",
   contactEmail: filled(settings.contactEmail) ? settings.contactEmail.trim() : "",
-  workspaceUrl: filled(settings.workspaceUrl) ? settings.workspaceUrl.trim() : "",
 
   // Used in the legal pages. Fill these in before launch.
   legal: {

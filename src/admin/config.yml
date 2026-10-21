@@ -245,7 +245,6 @@ collections:
         file: src/_data/settings.json
         fields:
           - { label: Contact email, name: contactEmail, widget: string }
-          - { label: Research workspace link, name: workspaceUrl, widget: string }
           - label: Social media links
             name: social
             widget: list

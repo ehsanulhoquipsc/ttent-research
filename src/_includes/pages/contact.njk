@@ -3,7 +3,7 @@
 {%- set c = {
   title: "যোগাযোগ করুন",
   lede: "কোনো প্রতিবেদন নিয়ে প্রশ্ন, গবেষণার নতুন ভাবনা, নাকি আমাদের সঙ্গে যুক্ত হতে চান? বার্তা পাঠান, আমরা ইমেইলে উত্তর দেব।",
-  email: "ইমেইল", workspace: "গবেষণা ওয়ার্কস্পেস", follow: "অনুসরণ করুন",
+  email: "ইমেইল", follow: "অনুসরণ করুন",
   name: "আপনার নাম", emailField: "ইমেইল", reason: "বিষয় কী?", message: "বার্তা", send: "বার্তা পাঠান",
   reasons: ["কোনো প্রতিবেদন নিয়ে প্রশ্ন", "গবেষণার নতুন ভাবনা", "গবেষক বা পর্যালোচক হিসেবে যুক্ত হতে চাই", "বাংলা অনুবাদ", "অন্য কিছু"],
   note: "আপনার তথ্য শুধু উত্তর দেওয়ার কাজে ব্যবহার করা হবে। বিস্তারিত দেখুন আমাদের",
@@ -14,7 +14,7 @@
 {%- set c = {
   title: "Contact us",
   lede: "Questions about a report, an idea for research, or want to join us? Send a message and we will reply by email.",
-  email: "Email", workspace: "Research workspace", follow: "Follow us",
+  email: "Email", follow: "Follow us",
   name: "Your name", emailField: "Email", reason: "What is it about?", message: "Message", send: "Send message",
   reasons: ["A question about a report", "An idea for research", "Joining as a researcher or reviewer", "Bangla translation", "Something else"],
   note: "We use your details only to reply to you. See our",
@@ -30,7 +30,6 @@
       <p class="lede">{{ c.lede }}</p>
       <div class="contact-list">
         {% if site.contactEmail %}<div><span class="label">{{ c.email }}</span><a href="mailto:{{ site.contactEmail }}" lang="en">{{ site.contactEmail }}</a></div>{% endif %}
-        {% if site.workspaceUrl %}<div><span class="label">{{ c.workspace }}</span><a href="{{ site.workspaceUrl }}" lang="en">{{ site.workspaceUrl | replace("https://", "") }}</a></div>{% endif %}
         {% if site.social.length %}<div><span class="label">{{ c.follow }}</span><span lang="en">{% for s in site.social %}<a href="{{ s.url }}">{{ s.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span></div>{% endif %}
       </div>
     </div>
