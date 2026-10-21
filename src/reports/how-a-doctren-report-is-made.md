@@ -1,16 +1,23 @@
 ---
-title: "How a Doctren report is made: research agents, researchers and the final paper"
-description: "Every report starts with one question. Agents gather the sources, and a researcher writes the paper."
+title: 'How a Doctren report is made: research agents, researchers and the final paper'
+url_name: how-a-doctren-report-is-made
+language: en
+description: Every report starts with one question. Agents gather the sources, and a researcher writes the paper.
 date: 2026-10-15
 topic: Knowledge
 authors:
   - Doctren Research Team
-# reviewer: "Name of guest reviewer"
-# thumbnail: /files/how-a-doctren-report-is-made.jpg
-# pdf: /files/how-a-doctren-report-is-made.pdf
-abstract: "Doctren is a non-profit research organisation whose research groups plan, discuss and carry out their work together. This report explains how a single question becomes a published paper: a project is set up in agent or manual mode, research agents gather sources for their part, the lead researcher writes the paper from those findings, and guest reviewers check the outcome before it appears on this site."
-url_name: how-a-doctren-report-is-made
-draft: false
+reviewer: ''
+thumbnail: ''
+thumbnailAlt: ''
+pdf: ''
+abstract: 'Doctren is a non-profit research organisation whose research groups plan, discuss and carry out their work together. This report explains how a single question becomes a published paper: a project is set up in agent or manual mode, research agents gather sources for their part, the lead researcher writes the paper from those findings, and guest reviewers check the outcome before it appears on this site.'
+funding: None. This report received no specific funding.
+conflicts: The authors declare no conflicts of interest.
+aiTools: ''
+corrections: []
+retracted: null
+draft: true
 ---
 
 ## Starting a project
