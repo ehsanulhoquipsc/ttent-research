@@ -1,14 +1,24 @@
 ---
-title: "Welcome to Doctren"
-description: "Why we publish our work openly, what you will find here, and how to read it in English or Bangla."
+title: Welcome to Doctren
+url_name: welcome-to-doctren
+language: en
+description: Why we publish our work openly, what you will find here, and how to read it in English or Bangla.
 date: 2026-10-14
 topic: Knowledge
 authors:
   - Doctren Research Team
-url_name: welcome-to-doctren
-draft: false
+reviewer: ''
+thumbnail: ''
+thumbnailAlt: ''
+pdf: ''
+abstract: ''
+funding: None. This report received no specific funding.
+conflicts: The authors declare no conflicts of interest.
+aiTools: ''
+corrections: []
+retracted: null
+draft: true
 ---
-
 
 ## Why this site exists
 
