@@ -6,7 +6,7 @@ description: "জাপান ও দক্ষিণ কোরিয়া ক�
 date: 2026-11-11
 topic: Economics & policy
 authors:
-  - Md Ehsanul Hoque
+  - Nitin Chawdhuri
 reviewer: ''
 thumbnail: /files/developmentalism.jpg
 thumbnailAlt: "উন্নয়নবাদ — রাষ্ট্র যখন উন্নয়নের চালক"

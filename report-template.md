@@ -15,8 +15,7 @@ description: "One or two sentences shown under the title in every list."
 date: 2026-10-20                 # publish date, YYYY-MM-DD
 topic: Non-profit sector         # must match a topic name in src/_data/site.js
 authors:
-  - First Author
-  - Second Author
+  - Nitin Chawdhuri
 reviewer: "Guest reviewer name"   # optional
 thumbnail: /files/volunteer-retention.jpg   # optional, 3:2 image in src/files/
 pdf: /files/volunteer-retention.pdf         # optional, PDF in src/files/

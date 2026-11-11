@@ -76,6 +76,7 @@ collections:
         name: authors
         widget: list
         required: false
+        default: ["Nitin Chawdhuri"]
         field: { label: Author, name: author, widget: string }
       - label: Reviewer
         name: reviewer
@@ -185,6 +186,7 @@ collections:
         name: authors
         widget: list
         required: false
+        default: ["Nitin Chawdhuri"]
         field: { label: Author, name: author, widget: string }
       - label: Bangla PDF
         name: pdf

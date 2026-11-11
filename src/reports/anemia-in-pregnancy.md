@@ -6,7 +6,7 @@ description: "Research question: ' Anemia in pregnancy' , is a day by day phenom
 date: 2026-10-20
 topic: Health
 authors:
-  - First Author
+  - Nitin Chawdhuri
 reviewer: ''
 thumbnail: /files/Anemia-in-pregnancy.png
 thumbnailAlt: গর্ভকালীন রক্তশূণ্যতা

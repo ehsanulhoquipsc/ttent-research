@@ -6,7 +6,7 @@ description: "বাংলাদেশে লাখো স্নাতক চা
 date: 2026-10-23
 topic: Knowledge
 authors:
-  - Md Ehsanul Hoque
+  - Nitin Chawdhuri
 reviewer: ''
 thumbnail: /files/skills-gap-bangladesh.jpg
 thumbnailAlt: "সনদ আছে, দক্ষতা নেই — উচ্চশিক্ষা ও শ্রমবাজারের ফারাক"
