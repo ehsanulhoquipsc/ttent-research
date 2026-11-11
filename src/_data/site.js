@@ -78,6 +78,13 @@ export default {
       descriptionBn: "জনস্বাস্থ্য ও সুস্থতা: দৈনন্দিন স্বাস্থ্য সমস্যা নিয়ে প্রমাণ কী বলে, আর সমাজ কীভাবে সাড়া দিতে পারে।",
     },
     {
+      name: "Economics & policy",
+      nameBn: "অর্থনীতি ও নীতি",
+      slug: "economics-policy",
+      description: "How economies grow and who benefits: the role of the state, markets and public policy.",
+      descriptionBn: "অর্থনীতি কীভাবে এগোয় এবং কারা লাভবান হয়: রাষ্ট্র, বাজার ও সরকারি নীতির ভূমিকা।",
+    },
+    {
       name: "Community improvement",
       nameBn: "সমাজ উন্নয়ন",
       slug: "community-improvement",

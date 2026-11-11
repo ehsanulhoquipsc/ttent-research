@@ -71,7 +71,7 @@ collections:
       - label: Topic
         name: topic
         widget: select
-        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Health", "Community improvement"]
+        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Health", "Economics & policy", "Community improvement"]
       - label: Authors
         name: authors
         widget: list
@@ -180,7 +180,7 @@ collections:
       - label: Topic (same as English)
         name: topic
         widget: select
-        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Health", "Community improvement"]
+        options: ["Non-profit sector", "Knowledge", "Rights & justice", "Health", "Economics & policy", "Community improvement"]
       - label: Authors
         name: authors
         widget: list
